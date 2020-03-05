@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/niviamanjee/MovieApp/issues"
   },
-  "homepage": "https://github.com/niviamanjee/MovieApp#readme"
+  "homepage": "https://github.com/niviamanjee/MovieApp#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.3"
+  }
 }
