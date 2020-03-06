@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../../App.css';
 import ImageArea from '../ImageArea/index.js';
 import MainArea from '../MainArea/index.js';

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../../App.css';
 import Front from '../Front/index.js';
 import Back from '../Back/index.js';
@@ -16,17 +16,15 @@ class BlogCard extends Component {
     render() {
         return (
 
+
             <div onMouseEnter={this.flip} onMouseLeave={this.flip} className={"card-container" + (this.state.flipped ? " flipped" : "")}>
 
                 <Front />
                 <Back />
-
             </div>
 
         )
     }
 }
-
-
 
 export default BlogCard;
