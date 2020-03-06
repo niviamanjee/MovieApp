@@ -1,8 +1,12 @@
+const router = require("express").Router();
 var axios = require("axios");
+var keys = require("../../text")
 
-axios.get("https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher").then(
+const THEMOVIEDB_API_KEY = keys.theMovieDB.secret
+
+axios.get("https://api.themoviedb.org/3/search/movie?api_key=" + THEMOVIEDB_API_KEY + "&query=Jack+Reacher").then(   
     function(res) {
-        console.log (res)
+        console.log (res.data)
     })
     .catch(function(error) {
         if (error.res) {
@@ -16,3 +20,5 @@ axios.get("https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jac
     }
     console.log(error.config);
     });
+
+module.exports = router
