@@ -6,3 +6,10 @@ export default {
     return axios.get("/api/movies");
   }
 };
+import axios from "axios";
+
+export default {
+    getShows: function (string) {
+        return axios.get("/api/search/shows" + string);
+    }
+}

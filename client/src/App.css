@@ -2,16 +2,14 @@ body {
   height: 100%;
   width: 100%;
   margin: 0;
-  background: #d1b6d6;
+  background: #b3995d;
   font-family: "Yanone Kaffeesatz", sans-serif;
   position: absolute;
   box-sizing: border-box;
 }
-
 body #root {
   height: 100%;
 }
-
 body #root .page-container {
   position: relative;
   width: 100%;
@@ -19,28 +17,24 @@ body #root .page-container {
   display: block;
   perspective: 1000px;
 }
-
 body #root .page-container .card-container {
-  height: 350px;
+  height: 680px;
   margin: 0;
   padding: 0;
   top: 20px;
-  width: 330px;
+  width: 300px;
   margin-left: 35%;
   margin-right: 35%;
   position: relative;
   transform-style: preserve-3d;
   box-sizing: border-box;
 }
-
 body #root .page-container .card-container.flipped .front {
   transform: rotateY(180deg);
 }
-
 body #root .page-container .card-container.flipped .back {
   transform: rotateY(0deg);
 }
-
 body #root .page-container .card-container .front,
 body #root .page-container .card-container .back {
   box-sizing: border-box;
@@ -57,13 +51,11 @@ body #root .page-container .card-container .back {
   transition: -webkit-transform ease 500ms;
   transition: transform ease 500ms;
 }
-
 body #root .page-container .card-container .front {
   z-index: 2;
   transform: rotateY(0deg);
   /* front tile styles go here! */
 }
-
 body #root .page-container .card-container .back {
   background: #f8f6ea;
   transform: rotateY(-180deg);
@@ -71,50 +63,42 @@ body #root .page-container .card-container .back {
   font-size: 20px;
   /* back tile styles go here! */
 }
-
 body #root .page-container .card-container .image-container {
   position: relative;
 }
-
 body #root .page-container .card-container .image-container .card-image {
   width: 100%;
   border-radius: 10px;
 }
-
-body #root .page-container .card-container .image-container .title {
-  font-size: 34px;
-  position: absolute;
+body #root .page-container .card-container .main-area .lead {
+  font-size: 28px;
+  position: relative;
   margin-bottom: 10px;
-  margin-left: 10px;
+  margin-left: 5px;
   bottom: 0;
   left: 0;
-  color: #f8f6ea;
+  color: Maroon;
 }
-
 body #root .page-container .card-container .main-area {
   margin-left: 10px;
   margin-top: 10px;
   margin-right: 10px;
 }
-
-body #root .page-container .card-container .main-area .blog-post {
+body #root .page-container .card-container .main-area .film-description {
   height: 100%;
 }
-
 body #root .page-container .card-container .main-area .blog-post .date {
   margin-top: 10px;
   margin-bottom: 5px;
   font-size: 20px;
 }
-
 body #root .page-container .card-container .main-area .blog-post .read-more {
   font-size: 20px;
   position: relative;
   bottom: 0px;
   text-align: right;
 }
-
-body #root .page-container .card-container .main-area .blog-post .blog-content {
+body #root .page-container .card-container .main-area .blog-post .film-description-abbreviated {
   height: 90%;
   display: block;
   margin-top: 10px;
@@ -123,10 +107,13 @@ body #root .page-container .card-container .main-area .blog-post .blog-content {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 body #root footer {
   position: fixed;
   bottom: 0;
   right: 0;
   margin: 20px;
+}
+
+body #root p {
+  font-size: 16px;
 }

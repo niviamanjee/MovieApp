@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 
-const PORT = process.env.PORT || 3009;
+const PORT = process.env.PORT || 3002;
 
 
 // // Define middleware here
@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/movieApp", { useNewUrlParser: true });
 
 // Start the API server
 app.listen(PORT, function () {

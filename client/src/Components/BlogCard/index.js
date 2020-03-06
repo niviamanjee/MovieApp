@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../../App.css';
 import Front from '../Front/index.js.js.js';
 import Back from '../Back/index.js.js.js';
@@ -20,13 +20,10 @@ class BlogCard extends Component {
 
                 <Front />
                 <Back />
-
             </div>
 
         )
     }
 }
-
-
 
 export default BlogCard;
