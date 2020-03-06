@@ -1,10 +1,13 @@
 const router = require("express").Router();
-var axios = require("axios");
+var axios = require("../../models/node_modules/axios");
 var keys = require("../../text")
 
 const THEMOVIEDB_API_KEY = keys.theMovieDB.secret
 
-axios.get("https://api.themoviedb.org/3/search/movie?api_key=" + THEMOVIEDB_API_KEY + "&query=Jack+Reacher").then(   
+var movieName = process.argv[2]
+
+router.get("/movies", function(req, res) {
+    axios.get("https://api.themoviedb.org/3/search/movie?api_key=" + THEMOVIEDB_API_KEY + "&query=" + movieName).then(   
     function(res) {
         console.log (res.data)
     })
@@ -20,5 +23,8 @@ axios.get("https://api.themoviedb.org/3/search/movie?api_key=" + THEMOVIEDB_API_
     }
     console.log(error.config);
     });
+    res.json("yoyoyo")
+})
+
 
 module.exports = router
