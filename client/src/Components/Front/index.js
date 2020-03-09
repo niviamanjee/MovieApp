@@ -4,11 +4,16 @@ import ImageArea from '../ImageArea/index.js';
 import MainArea from '../MainArea/index.js';
 
 class Front extends Component {
+    constructor(props) {
+        super(props);
+        this.shows = props.shows
+    }
     render() {
         return (
             <div className="front">
-                <ImageArea />
-                <MainArea />
+
+                <ImageArea show={this.props.shows} />
+                <MainArea show={this.props.shows} />
             </div>
         )
     }
