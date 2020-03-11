@@ -4,9 +4,11 @@ var keys = require("../../text")
 
 const THEMOVIEDB_API_KEY = keys.theMovieDB.secret
 
+
 var movieName = process.argv[2]
 
-router.get("/movies", function(req, res) {
+router.get("/", function(req, res) {
+
     axios.get("https://api.themoviedb.org/3/search/movie?api_key=" + THEMOVIEDB_API_KEY + "&query=" + movieName).then(   
     function(res) {
         console.log (res.data)
@@ -23,10 +25,9 @@ router.get("/movies", function(req, res) {
       }
       console.log(error.config);
     });
-    res.json("yoyoyo")
 })
 
 
 
 
-module.exports = router
+module.exports = {router, THEMOVIEDB_API_KEY}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import ImageArea from '../ImageArea/index.js.js.js';
-import MainArea from '../MainArea/index.js.js.js';
+import ImageArea from '../ImageArea/index';
+import MainArea from '../MainArea/index';
 
 class Front extends Component {
     render() {

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import '../../App.css';
 
-class MainArea extends Component {
-    render() {
+function MainArea(props){
         return (
             <div className="main-area">
                 <div className="blog-post">
@@ -17,6 +16,5 @@ class MainArea extends Component {
             </div>
         )
     }
-}
 
 export default MainArea;

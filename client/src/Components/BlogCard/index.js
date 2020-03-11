@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import Front from '../Front/index.js.js.js';
-import Back from '../Back/index.js.js.js';
+import Front from '../Front/index';
+import Back from '../Back/index';
 
 class BlogCard extends Component {
     constructor(props) {
@@ -13,12 +13,13 @@ class BlogCard extends Component {
     flip = () => {
         this.setState({ flipped: !this.state.flipped });
     }
-    render() {
+    render(props) {
         return (
 
             <div onMouseEnter={this.flip} onMouseLeave={this.flip} className={"card-container" + (this.state.flipped ? " flipped" : "")}>
 
-                <Front />
+                <Front
+                 />
                 <Back />
             </div>
 
