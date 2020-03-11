@@ -32,10 +32,7 @@
     "if-env": "^1.0.4",
     "mongoose": "^5.9.3",
     "nodemon": "^2.0.2",
-<<<<<<< HEAD
-=======
     "react-router-dom": "^5.1.2"
->>>>>>> ea9ed33a9494d1c6356b286616f83a09910bea21
   },
   "devDependencies": {
     "concurrently": "^5.1.0"

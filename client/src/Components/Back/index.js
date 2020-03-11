@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 import '../../App.css';
 
@@ -24,19 +23,6 @@ function Back() {
       <hr />
     </div>
   )
-=======
-import React, { Component } from 'react';
-
-class Back extends Component {
-    render() {
-        return (
-            <div className="back">
-                <p>Some sample text to demonstrate how these cards will work, including how they truncate long sentences. This section displays the full-length blog post.</p>
-                <p>Bloggity bloggity bloggity blog. This would be the full text of the abbreviated blog post.</p>
-            </div>
-        )
-    }
->>>>>>> ea9ed33a9494d1c6356b286616f83a09910bea21
 }
 
 export default Back;
