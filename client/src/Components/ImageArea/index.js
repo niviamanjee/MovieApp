@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import React, { Component} from 'react';
+=======
 import React, { Component } from 'react';
+>>>>>>> 8ff6bf4edf5d686ceb1bd75b7150755b9d5108e0
 import '../../App.css';
 
 function ImageArea () {
