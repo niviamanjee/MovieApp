@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+import React, { useState } from 'react';
+import '../../App.css';
+import Front from '../Front/index';
+import Back from '../Back/index';
+
+const Card =()=> {
+    const [flipped, setFlipped] = useState(false);
+        return (
+            <div onMouseEnter={()=>setFlipped(true)} onMouseLeave={()=>setFlipped(false)} className={"card-container" + (flipped ? " flipped" : "")}>
+                <Front />
+                <Back />
+            </div>
+        )
+}
+
+=======
 import React, { useContext } from 'react';
 import SearchContext from "../../utils/SearchContext"
 import '../../App.css';
@@ -34,4 +51,5 @@ function Card() {
 
 
 
+>>>>>>> c5d6ac72f9e9503c31abaf8e9a80ba5e37c36a8e
 export default Card;
