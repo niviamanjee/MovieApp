@@ -1,5 +1,14 @@
+<<<<<<< HEAD
+import React, { Component} from 'react';
+=======
 import React, { Component } from 'react';
+>>>>>>> 8ff6bf4edf5d686ceb1bd75b7150755b9d5108e0
 import '../../App.css';
+
+function ImageArea () {
+        return (
+            <div className="image-container">
+                <img className="card-image" src="https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg" alt=""></img>
 
 class ImageArea extends Component {
     constructor(props) {
@@ -18,7 +27,6 @@ class ImageArea extends Component {
         )
     }
 
-}
 
 
 export default ImageArea;

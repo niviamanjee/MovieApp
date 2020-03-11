@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
+
+import BlogCard from './Components/BlogCard/index.js';
+import MovieSearch from './Pages/MovieSearch';
+import NavBar from './Components/NavBar';
+
+
+
 import API from "./utils/API";
 // import Navbar from "./Components/Navbar"
 import Wrapper from "./Components/Wrapper"
@@ -30,6 +37,7 @@ function App() {
     console.log(event.target.value)
     setState({ ...state, showSearch: event.target.value })
     console.log(state.showSearch)
+
   }
 
   const handleSubmit = (event) => {

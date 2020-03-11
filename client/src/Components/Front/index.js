@@ -1,8 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../../App.css';
-import ImageArea from '../ImageArea/index.js';
-import MainArea from '../MainArea/index.js';
+import ImageArea from '../ImageArea/index';
+import MainArea from '../MainArea/index';
 
+function Front() {
+    return (
+        <div className="front">
+            <ImageArea />
+            <MainArea />
+        </div>
+    )
 class Front extends Component {
     constructor(props) {
         super(props);
@@ -18,5 +25,6 @@ class Front extends Component {
         )
     }
 }
+
 
 export default Front;

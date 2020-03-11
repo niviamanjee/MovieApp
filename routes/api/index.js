@@ -3,7 +3,7 @@ const router = require("express").Router();
 const movieDBRoutes = require("./moviedb")
 const showDBRoutes = require("./showsdb")
 
-// Book routes
+// Movie routes
 // router.use("/movie", movieRoutes);
 router.use("/movie", movieDBRoutes);
 router.use("/shows", showDBRoutes);
