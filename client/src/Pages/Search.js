@@ -1,40 +1,38 @@
-import React, { useEffect, useState } from "react";
-import Jumbotron from "../components/Jumbotron";
-import DeleteBtn from "../components/DeleteBtn";
-import API from "../utils/API";
-import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import React, { useContext } from "react";
+import SearchContext from "../utils/SearchContext";
+import Card from "../Components/Card"
 
 
-function Shows() {
+
+function Search() {
     // Setting our component's initial state
-    const [shows, setShows] = useState([])
+    const { showSearch, shows, handleSubmit, handleInputChange } = useContext(SearchContext)
     // const [formObject, setFormObject] = useState({})
-
-    // Load all books and store them with setBooks
-    useEffect(() => {
-        loadShows()
-    }, [])
-
-    // Loads all books and sets them to books
-    function loadShows() {
-        API.getShows("The Simpsons")
-            .then(res => {
-
-                setShows(res.data)
-                console.log(res.data)
-            }
-            )
-            .catch(err => console.log(err));
-    };
 
 
     return (
-        <div> {shows}</div>
+        <div>
 
-    );
+            <form>
+                <div className="form-group">
+                    <label>Search for Show</label>
+                    {/* <br></br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="movieFilter" value="option1"></input>
+                        <label class="form-check-label" for="movieFilter">movie</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="showFilter" value="option2"></input>
+                        <label class="form-check-label" for="showFilter">show</label>
+                    </div> */}
+                    <input id="query-input" className="form-control" onChange={handleInputChange}></input>
+                </div>
+                <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Search</button>
+            </form>
+            <Card shows={shows} showSearch={showSearch} ></Card>
+        </div>
+
+    )
 }
 
-
-export default Shows;
+export default Search;

@@ -8,6 +8,7 @@ class BlogCard extends Component {
         super(props);
         this.state = { flipped: false };
         this.flip = this.flip.bind(this);
+        this.shows = props.shows
     }
 
     flip = () => {
@@ -18,9 +19,8 @@ class BlogCard extends Component {
 
             <div onMouseEnter={this.flip} onMouseLeave={this.flip} className={"card-container" + (this.state.flipped ? " flipped" : "")}>
 
-                <Front
-                 />
-                <Back />
+                <Front shows={this.props.shows} />
+                <Back shows={this.props.shows} />
             </div>
 
         )

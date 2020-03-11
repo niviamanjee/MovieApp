@@ -5,7 +5,8 @@ var keys = require("../../text")
 const THEMOVIEDB_API_KEY = keys.theMovieDB.secret
 
 
-var movieName = process.argv[2]
+
+function getShowID(string) {
 
 router.get("/", function(req, res) {
 

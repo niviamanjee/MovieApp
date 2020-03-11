@@ -1,14 +1,18 @@
 {
-  "name": "create-react-express",
+  "name": "movieapp",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.1",
+    "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
+<<<<<<< HEAD
     "dotenv": "^8.2.0",
+=======
+    "bootstrap": "^4.4.1",
+>>>>>>> 8ff6bf4edf5d686ceb1bd75b7150755b9d5108e0
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
