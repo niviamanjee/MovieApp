@@ -5,7 +5,7 @@ var keys = require("../../text")
 const THEMOVIEDB_API_KEY = keys.theMovieDB.secret
 
 
-router.get("")
+
 function getShowID(string) {
 
   var show = string.replace(" ", "+")
