@@ -29,11 +29,12 @@ function App() {
     event.preventDefault();
     console.log(event.target.value)
     setState({ ...state, showSearch: event.target.value })
+    console.log(state.showSearch)
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    console.log(state.showSearch)
     API.getShows(state.showSearch)
       .then(res => {
 
