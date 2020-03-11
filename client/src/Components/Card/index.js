@@ -4,7 +4,8 @@ import '../../App.css';
 
 
 function Card() {
-    const { showSearch, shows, handleSubmit, handleInputChange } = useContext(SearchContext)
+    const { show } = useContext(SearchContext)
+    const { title, id, summary, image, creators, episode_time, genres, networks, episodes_number, seasons_number, first_air_date, rating } = show
 
 
     return (
@@ -12,7 +13,7 @@ function Card() {
 
         <div className="back">
             <p className="film-description">
-                {shows}
+                {summary}
             </p>
             <hr />
             {/* <p className="film-directors"><b>Directed by </b>Anthony Russo, Joe Russo</p>
