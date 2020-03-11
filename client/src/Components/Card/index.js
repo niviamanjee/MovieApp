@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import SearchContext from "../../utils/SearchContext"
 import '../../App.css';
 
 
-function Card(props) {
+function Card() {
+    const { showSearch, shows, handleSubmit, handleInputChange } = useContext(SearchContext)
+
 
     return (
 
 
         <div className="back">
             <p className="film-description">
-                {props.shows}
+                {shows}
             </p>
             <hr />
             {/* <p className="film-directors"><b>Directed by </b>Anthony Russo, Joe Russo</p>

@@ -27,7 +27,7 @@ function Search() {
                     </div> */}
                     <input id="query-input" className="form-control" onChange={handleInputChange}></input>
                 </div>
-                <button type="submit" className="btn btn-primary" onSubmit={handleSubmit}>Search</button>
+                <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Search</button>
             </form>
             <Card shows={shows} showSearch={showSearch} ></Card>
         </div>

@@ -38,8 +38,8 @@ function App() {
     API.getShows(state.showSearch)
       .then(res => {
 
-        setState({ ...state, show: res.data })
         console.log(res.data)
+        setState({ ...state, show: res.data })
       }
       )
       .catch(err => console.log(err));
