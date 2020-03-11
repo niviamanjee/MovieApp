@@ -6,7 +6,7 @@ import Card from "../Components/Card"
 
 function Search() {
     // Setting our component's initial state
-    const { flipped, showSearch, show, handleSubmit, handleInputChange } = useContext(SearchContext)
+    const { flipped, showSearch, show, handleSubmit, handleInputChange, saveCard } = useContext(SearchContext)
     // const [formObject, setFormObject] = useState({})
 
 
@@ -29,7 +29,7 @@ function Search() {
                 </div>
                 <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Search</button>
             </form>
-            <Card flipped={flipped} show={show} showSearch={showSearch} ></Card>
+            <Card flipped={flipped} show={show} showSearch={showSearch} saveCard={saveCard}></Card>
         </div>
 
     )

@@ -4,7 +4,7 @@ import SearchContext from "../../utils/SearchContext"
 
 function Back() {
 
-  const { show } = useContext(SearchContext)
+  const { show, saveCard } = useContext(SearchContext)
   const { title, id, summary, image, creators, episode_time, genres, networks, episodes_number, seasons_number, first_air_date, rating } = show
 
   return (
@@ -29,6 +29,7 @@ function Back() {
       <p className="imdb-rating"><b>IMDb Rating: </b>8.5 out of 10</p>
       <p className="rotten-tomatoes"><b>Rotten Tomatoes: </b>94 out of 100</p>
       <hr />
+      <button class="btn btn-outline-danger btn-sm" onClick={saveCard(id, title)}> Save Card</button>
     </div>
   )
 }
