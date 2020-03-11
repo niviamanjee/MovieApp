@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../../App.css';
+import SearchContext from "../../utils/SearchContext"
 
 function Back() {
+
+  const { show } = useContext(SearchContext)
+  const { title, id, summary, image, creators, episode_time, genres, networks, episodes_number, seasons_number, first_air_date, rating } = show
+
   return (
+
+
+
     <div className="back">
       <p className="film-description">
-        After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.
-        </p>
+        {summary}
+      </p>
       <hr />
       <p className="film-directors"><b>Directed by </b>Anthony Russo, Joe Russo</p>
       <p className="film-writers"><b>Written by </b>Christopher Markus, Stephen McFeely</p>
