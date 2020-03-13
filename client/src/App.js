@@ -5,7 +5,7 @@ import API from "./utils/API";
 import NavBar from "./Components/Navbar"
 import Wrapper from "./Components/Wrapper"
 // import BlogCard from './Components/BlogCard/index.js';
-import Search from "./Pages/Search"
+import ShowSearch from "./Pages/ShowSearch"
 import Save from "./Pages/Save"
 import SearchContext from './utils/SearchContext';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -66,15 +66,15 @@ function App() {
     //if show:set up cardData to match showSchema
     // call appropriate functions based on filter 
 
-    //   var cardData = {
-    //     id: id,
-    //     title: title,
-    //     creator: creators,
-    //     synopsis: summary
-    //   }
+    var cardData = {
+      id: id,
+      title: title,
+      creator: creators,
+      synopsis: summary
+    }
+    console.log(cardData)
 
-
-    //   API.saveShowCard(cardData).then()
+    API.saveShowCard(cardData).then()
 
     // }
 
@@ -89,7 +89,8 @@ function App() {
         <div className="page-container">
           <NavBar />
           <Wrapper>
-            <Route exact path="/" component={Search} />
+            {/* <Route exact path="/" component={Home} /> */}
+            <Route exact path="/shows" component={ShowSearch} />
             <Route exact path="/save" component={Save} />
 
           </Wrapper>
