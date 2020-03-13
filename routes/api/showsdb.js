@@ -18,18 +18,18 @@ router.get("/:id", function (req, res) {
 
     axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${THEMOVIEDB_API_KEY}&query=${show}`).then(
         function (result1) {
-            console.log('result1:', result1.data)
+            console.log("result data: ", result1.data)
+
 
             showObject = {
                 title: result1.data.results[0].original_name,
                 id: result1.data.results[0].id,
                 summary: result1.data.results[0].overview,
-                image: result1.data.results[0].poster_path
+                image: "https://image.tmdb.org/t/p/w500/" + result1.data.results[0].poster_path
             }
             axios.get(`https://api.themoviedb.org/3/tv/${showObject.id}?api_key=${THEMOVIEDB_API_KEY}&language=en-US&append_to_response=content_ratings`).then(
                 function (result2) {
-                    console.log("result2:", result2.data)
-                    console.log("result2results:", result2.data.content_ratings.results)
+
 
                     showObject.creators = result2.data.created_by.map(creator => creator.name);
                     showObject.episode_time = result2.data.episode_run_time[0];
