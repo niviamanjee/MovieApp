@@ -89,7 +89,7 @@ function App() {
         <div className="page-container">
           <NavBar />
           <Wrapper>
-            {/* <Route exact path="/" component={Home} /> */}
+            <Route exact path="/" component={Home} />
             <Route exact path="/shows" component={ShowSearch} />
             <Route exact path="/save" component={Save} />
 
