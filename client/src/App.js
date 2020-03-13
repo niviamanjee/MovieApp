@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
+
+import Card from './Components/Card/index.js';
+
+import NavBar from './Components/NavBar';
+
+
+
 import API from "./utils/API";
-import NavBar from "./Components/Navbar"
+import NavBar from "./Components/NavBar";
 import Wrapper from "./Components/Wrapper"
 // import BlogCard from './Components/BlogCard/index.js';
 import ShowSearch from "./Pages/ShowSearch"
 import Save from "./Pages/Save"
+import MovieSearch from "./Pages/MovieSearch"
 import SearchContext from './utils/SearchContext';
-import 'bootstrap/dist/css/bootstrap.css';
+//import 'bootstrap/dist/css/bootstrap.css';=======
+import Jumbotron from './Components/Jumbotron';
+// import 'bootstrap/dist/css/bootstrap.css';
 
 
-function App() {
+  function App() {
 
   const [state, setState] = useState({
     // filter= "",
@@ -19,7 +29,7 @@ function App() {
     flipped: false,
     movieSearch: "",
     showSearch: "",
-    movie: {},
+    movie: [],
     show: {},
   })
 
@@ -32,10 +42,19 @@ function App() {
 
   const handleInputChange = (event) => {
     event.preventDefault();
+    // console.log(event.target.value)
     console.log(event.target.value)
 
     setState({ ...state, showSearch: event.target.value })
-    console.log(state.showSearch)
+    
+    // console.log(state.showSearch)
+
+  }
+  
+  const handleInputChangeMovies = (event) => {
+    event.preventDefault();
+    setState({ ...state, movieSearch: event.target.value })
+    // console.log(state.showSearch)
 
   }
 
@@ -50,8 +69,23 @@ function App() {
       }
       )
       .catch(err => console.log(err));
+  
+     
   }
 
+  const handleSubmitMovies = (event) => {
+    event.preventDefault();
+      // Call Movie API from the backend through Utils folder
+      API.getMovies(state.movieSearch)
+      .then(res => {
+        console.log("jadksflaksfh")
+        console.log(res.data)
+        setState({ ...state, movie: res.data })
+      }
+      )
+      .catch(err => console.log(err));
+  }
+  
   const flip = () => {
     setState({ ...state, flipped: !state.flipped });
   }
@@ -84,7 +118,7 @@ function App() {
     // }
   }
   return (
-    <SearchContext.Provider value={{ ...state, handleSubmit, handleInputChange, flip, saveCard }}>
+    <SearchContext.Provider value={{ ...state, handleSubmit, handleSubmitMovies, handleInputChange,handleInputChangeMovies, flip, saveCard }}>
       <Router>
         <div className="page-container">
           <NavBar />
@@ -92,8 +126,18 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/shows" component={ShowSearch} />
             <Route exact path="/save" component={Save} />
+            <Route exact path="/movies" component={MovieSearch} />
 
+
+           </Wrapper>
+           {/* <Footer></Footer> */}
+         </div>
+       </Router>
+     </SearchContext.Provider>
+      )
+  }
           </Wrapper>
+          <Card/>
           {/* <Footer></Footer> */}
         </div>
       </Router>

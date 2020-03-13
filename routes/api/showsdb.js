@@ -5,7 +5,6 @@ var keys = require("../../text")
 const THEMOVIEDB_API_KEY = keys.theMovieDB.secret
 
 
-
 // router.get("/shows/:id", function (req, res) {
 
 
@@ -17,7 +16,7 @@ router.get("/:id", function (req, res) {
 
 
     var show = req.params.id.replace(" ", "+")
-
+    var showArr = []
     axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${THEMOVIEDB_API_KEY}&query=${show}`).then(
         function (result1) {
             console.log("result data: ", result1.data)
@@ -64,7 +63,7 @@ router.get("/:id", function (req, res) {
 
 
 
-            console.log(showObject)
+            // console.log(showArr)
         }).catch(function (error) {
             if (error.res) {
             } else if (error.request) {
