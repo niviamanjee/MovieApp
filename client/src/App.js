@@ -9,17 +9,19 @@ import NavBar from './Components/NavBar';
 
 
 import API from "./utils/API";
+import NavBar from "./Components/NavBar";
 import Wrapper from "./Components/Wrapper"
 // import BlogCard from './Components/BlogCard/index.js';
 import ShowSearch from "./Pages/ShowSearch"
 import Save from "./Pages/Save"
 import MovieSearch from "./Pages/MovieSearch"
 import SearchContext from './utils/SearchContext';
+//import 'bootstrap/dist/css/bootstrap.css';=======
 import Jumbotron from './Components/Jumbotron';
 // import 'bootstrap/dist/css/bootstrap.css';
 
 
-function App() {
+  function App() {
 
   const [state, setState] = useState({
     // filter= "",
@@ -126,6 +128,14 @@ function App() {
             <Route exact path="/save" component={Save} />
             <Route exact path="/movies" component={MovieSearch} />
 
+
+           </Wrapper>
+           {/* <Footer></Footer> */}
+         </div>
+       </Router>
+     </SearchContext.Provider>
+      )
+  }
           </Wrapper>
           <Card/>
           {/* <Footer></Footer> */}
