@@ -1,66 +1,38 @@
-import React, { useState, useEffect } from 'react';
-// import './App.css';
-import API_URL from "../utils/API"
-import axios from 'axios';
-import Jumbotron from '../Components/Jumbotron';
-import SearchBar from '../Components/SearchBar';
-import BlogCard from '../Components/BlogCard';
+import React, { useContext } from "react";
+import SearchContext from "../utils/SearchContext";
+import Card from "../Components/Card"
+
 
 
 function MovieSearch() {
-    const [movies, setMovies] = useState([]);
-//   state = {
-//     movies:[],
-//     titles: '',
-//     releaseDates: '',
-//     overviews: '',
-//     searched: ''
-//   }
-  
-    useEffect(() => {
-        loadMovies();
-    }, [])
+    // Setting our component's initial state
+    const { movieSearch, movie, handleSubmitMovies, handleInputChangeMovies } = useContext(SearchContext)
+    // const [formObject, setFormObject] = useState({})
 
-  function loadMovies() {
-    const url = `${API_URL}`;
-    axios.get(url).then(response => response.data)
-    .then((data) => {
-      setMovies(data.results);
-      
-      console.log(movies)
-      
-    //     this.setState({ movies: data.results })
-    //     // console.log(this.state.movies[0].title)
-    //   //   //loops through movies to get titles, release data, overview
-    //   for (var i = 0; i < data.results.length; i ++) {
-    //     this.setState({ titles: data.results[i].title })
-    //     this.setState({ releaseDates: data.results[i].release_date }) 
-    //     this.setState({ overviews: data.results[i].overview })
-       
-    //     // console.log(this.state.titles +"\n" + "\n"+ this.state.releaseDates +"\n" + "\n" + this.state.overviews + '\n')
-    //   }
-//    console.log(movies)    
-     })
-  }
-    
-    // console.log()
-  return (
-      
-      <>
-    <div className="container">
-    <Jumbotron/>
-      <SearchBar/>
-     <div className="col-xs-8">
-    
-         <BlogCard
-        //  movieTitle = {this.state.movies.results[0].title}
-         />
+    return (
+        
+        <div>
+            
+            <form>
+                <div className="form-group">
+                    <label>Search for Movies</label>
+                    {/* <br></br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="movieFilter" value="option1"></input>
+                        <label class="form-check-label" for="movieFilter">movie</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="showFilter" value="option2"></input>
+                        <label class="form-check-label" for="showFilter">show</label>
+                    </div> */}
+                    <input id="query-input" className="form-control" onChange={handleInputChangeMovies}></input>
+                </div>
+                <button type="submit" className="btn btn-primary" onClick={handleSubmitMovies}>Search</button>
+            </form>
+            <Card movie={movie} movieSearch={movieSearch} ></Card>
+        </div>
 
-     </div>
-    </div>
-    </>
- );
+    )
 }
-
 
 export default MovieSearch

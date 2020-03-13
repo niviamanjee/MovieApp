@@ -3,11 +3,13 @@ import React, { createContext } from 'react';
 const SearchContext = createContext({
     movieSearch: "",
     showSearch: "",
-    movie: {},
+    movie: [],
     show: {},
     handleBtnClick: (event) => { },
     handleSubmit: (event) => { },
-    handleInputChange: (event) => { }
+    handleSubmitMovies: (event) => { },
+    handleInputChange: (event) => { },
+    handleInputChangeMovies: (event) => { }
 })
 
 export default SearchContext;

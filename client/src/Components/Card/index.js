@@ -1,35 +1,21 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
-import '../../App.css';
-import Front from '../Front/index';
-import Back from '../Back/index';
-
-const Card =()=> {
-    const [flipped, setFlipped] = useState(false);
-        return (
-            <div onMouseEnter={()=>setFlipped(true)} onMouseLeave={()=>setFlipped(false)} className={"card-container" + (flipped ? " flipped" : "")}>
-                <Front />
-                <Back />
-            </div>
-        )
-}
-
-=======
 import React, { useContext } from 'react';
 import SearchContext from "../../utils/SearchContext"
 import '../../App.css';
 
 
 function Card() {
-    const { showSearch, shows, handleSubmit, handleInputChange } = useContext(SearchContext)
-
+    const { movieSearch, movie, handleSubmitMovies, handleInputChangeMovies } = useContext(SearchContext)
+    // const movieCards = movie.map(card => {
+    // <div>{}</div>
+    // })
 
     return (
 
+// {movie.map(movie => {
 
         <div className="back">
             <p className="film-description">
-                {shows}
+                {movie}
             </p>
             <hr />
             {/* <p className="film-directors"><b>Directed by </b>Anthony Russo, Joe Russo</p>
@@ -45,11 +31,11 @@ function Card() {
             <p className="imdb-rating"><b>IMDb Rating: </b>8.5 out of 10</p>
             <p className="rotten-tomatoes"><b>Rotten Tomatoes: </b>94 out of 100</p> */}
         </div>
+// })}
 
     )
 }
 
 
 
->>>>>>> c5d6ac72f9e9503c31abaf8e9a80ba5e37c36a8e
 export default Card;

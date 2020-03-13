@@ -5,7 +5,7 @@ const showDBRoutes = require("./showsdb")
 
 // Movie routes
 // router.use("/movie", movieRoutes);
-router.use("/movie", movieDBRoutes);
+router.use("/movies", movieDBRoutes);
 router.use("/shows", showDBRoutes);
 
 module.exports = router;
