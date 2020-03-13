@@ -14,7 +14,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 function App() {
 
   const [state, setState] = useState({
-    filter= "",
+    // filter= "",
     saved: false,
     flipped: false,
     movieSearch: "",
@@ -82,22 +82,24 @@ function App() {
     // const handleBtnClick = event => {
     //   console.log(state)
     // }
-    return (
-      <SearchContext.Provider value={{ ...state, handleSubmit, handleInputChange, flip, saveCard }}>
-        <Router>
-          <div className="page-container">
-            <NavBar />
-            <Wrapper>
-              <Route exact path="/" component={Search} />
-              <Route exact path="/save" component={Save} />
-
-            </Wrapper>
-            {/* <Footer></Footer> */}
-          </div>
-        </Router>
-      </SearchContext.Provider>
-    )
-
   }
+  return (
+    <SearchContext.Provider value={{ ...state, handleSubmit, handleInputChange, flip, saveCard }}>
+      <Router>
+        <div className="page-container">
+          <NavBar />
+          <Wrapper>
+            <Route exact path="/" component={Search} />
+            <Route exact path="/save" component={Save} />
 
-  export default App;
+          </Wrapper>
+          {/* <Footer></Footer> */}
+        </div>
+      </Router>
+    </SearchContext.Provider>
+  )
+
+
+}
+
+export default App;

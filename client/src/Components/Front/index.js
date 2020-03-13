@@ -6,11 +6,11 @@ import SearchContext from "../../utils/SearchContext"
 
 function Front() {
     const { show } = useContext(SearchContext)
-    const { title, id, summary, image, creators, episode_time, genres, networks, episodes_number, seasons_number, first_air_date, rating } = show
+
     return (
         <div className="front">
-            <ImageArea />
-            <MainArea />
+            <ImageArea show={show} />
+            <MainArea show={show} />
 
         </div>
     )

@@ -16,6 +16,10 @@ function Search() {
             <form>
                 <div className="form-group">
                     <label>Search for Show</label>
+                    <div className="btn-group" data-toggle="buttons">
+                        <label className="btn btn-primary"><input type="checkbox" /> Movie</label>
+                        <label className="btn btn-primary"><input type="checkbox" />Show</label>
+                    </div>
                     {/* <br></br>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" id="movieFilter" value="option1"></input>
