@@ -1,4 +1,3 @@
-import React, { useContext } from 'react';
 import '../../App.css';
 import SearchContext from "../../utils/SearchContext"
 import Front from '../Front/index';
@@ -11,6 +10,7 @@ const Card = () => {
             <Front show={show} />
             <Back show={show} saveCard={saveCard} />
         </div>
+
     )
 }
 

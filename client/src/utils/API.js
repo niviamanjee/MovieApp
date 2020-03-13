@@ -5,13 +5,13 @@ export default {
     getShows: function (query) {
         return axios.get("/api/shows/" + query);
     },
-    getMovies: function (query) {
-        return axios.get("/api/movies/" + query);
+    getMovies: function (movieName) {
+        return axios.get("/api/movies/" + movieName);
     },
     saveShowCard: function (cardData) {
-        return axios.put("/api/show/save/", cardData)
+        return axios.post("/api/show/save/", cardData)
     },
     saveMovieCard: function (cardData) {
-        return axios.put("/api/movie/save/", cardData)
+        return axios.post("/api/movie/save/", cardData)
     }
 }

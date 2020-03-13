@@ -4,7 +4,7 @@ import Card from "../Components/Card"
 
 
 
-function Search() {
+function ShowSearch() {
     // Setting our component's initial state
     const { flipped, showSearch, show, handleSubmit, handleInputChange, saveCard } = useContext(SearchContext)
     // const [formObject, setFormObject] = useState({})
@@ -39,4 +39,4 @@ function Search() {
     )
 }
 
-export default Search;
+export default ShowSearch;

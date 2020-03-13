@@ -5,7 +5,6 @@ var keys = require("../../text")
 const THEMOVIEDB_API_KEY = keys.theMovieDB.secret
 
 
-
 // router.get("/shows/:id", function (req, res) {
 
 
@@ -14,19 +13,25 @@ router.get("/:id", function (req, res) {
     console.log(req.body)
     var showObject = {}
 
-    var show = req.params.id.replace(" ", "+")
 
+
+    var show = req.params.id.replace(" ", "+")
+    var showArr = []
     axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${THEMOVIEDB_API_KEY}&query=${show}`).then(
         function (result1) {
             console.log("result data: ", result1.data)
 
 
             showObject = {
-                title: result1.data.results[0].original_name,
-                id: result1.data.results[0].id,
-                summary: result1.data.results[0].overview,
-                image: "https://image.tmdb.org/t/p/w500/" + result1.data.results[0].poster_path
+                title: result1.data.results[i].original_name,
+                id: result1.data.results[i].id,
+                summary: result1.data.results[i].overview,
+                image: "https://image.tmdb.org/t/p/w500/" + result1.data.results[i].poster_path
             }
+
+
+
+
             axios.get(`https://api.themoviedb.org/3/tv/${showObject.id}?api_key=${THEMOVIEDB_API_KEY}&language=en-US&append_to_response=content_ratings`).then(
                 function (result2) {
 
@@ -58,7 +63,7 @@ router.get("/:id", function (req, res) {
 
 
 
-            console.log(showObject)
+            // console.log(showArr)
         }).catch(function (error) {
             if (error.res) {
             } else if (error.request) {
