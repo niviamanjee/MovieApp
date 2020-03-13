@@ -3,16 +3,16 @@ import '../../App.css';
 import SearchContext from '../../utils/SearchContext';
 
 function MainArea() {
-    const { movie } = useContext(SearchContext)
+    const { show } = useContext(SearchContext)
 
-    const { title, summary, image } = movie;
+    const { title, summary, image } = show;
     return (
         <div className="main-area">
             <h1 className="lead">
                 {title}
             </h1>
             <div className="blog-post">
-                <p className="film-description-abbreviated">
+                <p className="show-description-abbreviated">
                     {summary}
                 </p>
                 <p className="read-more">Hover to Read More...</p>

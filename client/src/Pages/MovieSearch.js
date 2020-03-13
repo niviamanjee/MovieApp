@@ -4,7 +4,7 @@ import API_URL from "../utils/API"
 import axios from 'axios';
 import Jumbotron from '../Components/Jumbotron';
 import SearchBar from '../Components/SearchBar';
-import BlogCard from '../Components/BlogCard';
+import Card from '../Components/Card';
 
 
 function MovieSearch() {
@@ -52,7 +52,7 @@ function MovieSearch() {
       <SearchBar/>
      <div className="col-xs-8">
     
-         <BlogCard
+         <Card
         //  movieTitle = {this.state.movies.results[0].title}
          />
 

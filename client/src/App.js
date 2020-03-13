@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import API from "./utils/API";
-import NavBar from "./Components/Navbar"
+import NavBar from "./Components/NavBar";
 import Wrapper from "./Components/Wrapper"
 // import BlogCard from './Components/BlogCard/index.js';
 import Search from "./Pages/Search"
 import Save from "./Pages/Save"
 import SearchContext from './utils/SearchContext';
-import 'bootstrap/dist/css/bootstrap.css';
+//import 'bootstrap/dist/css/bootstrap.css';
 
 
-// function App() {
+  function App() {
 
   const [state, setState] = useState({
     // filter= "",
@@ -39,18 +39,18 @@ import 'bootstrap/dist/css/bootstrap.css';
 
   }
 
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     console.log(state.showSearch)
-//     API.getShows(state.showSearch)
-//       .then(res => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(state.showSearch)
+    API.getShows(state.showSearch)
+      .then(res => {
 
-//         console.log(res.data)
-//         setState({ ...state, show: res.data })
-//       }
-//       )
-//       .catch(err => console.log(err));
-//   }
+        console.log(res.data)
+        setState({ ...state, show: res.data })
+      }
+      )
+      .catch(err => console.log(err));
+  }
 
   const flip = () => {
     setState({ ...state, flipped: !state.flipped });
@@ -98,5 +98,6 @@ import 'bootstrap/dist/css/bootstrap.css';
        </Router>
      </SearchContext.Provider>
       )
+  }
 
 export default App;

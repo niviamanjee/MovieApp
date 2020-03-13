@@ -5,12 +5,12 @@ import MainArea from '../MainArea/index';
 import SearchContext from "../../utils/SearchContext";
 
 function Front() {
-    const { movie } = useContext(SearchContext);
+    const { show } = useContext(SearchContext);
 
     return (
         <div className="front">
-            <ImageArea movie={movie} />
-            <MainArea movie={movie} />
+            <ImageArea show={show} />
+            <MainArea show={show} />
         </div>
     )
 }
