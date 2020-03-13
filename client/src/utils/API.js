@@ -9,9 +9,9 @@ export default {
         return axios.get("/api/movies/" + query);
     },
     saveShowCard: function (cardData) {
-        return axios.put("/api/show/save/", cardData)
+        return axios.post("/api/show/save/", cardData)
     },
     saveMovieCard: function (cardData) {
-        return axios.put("/api/movie/save/", cardData)
+        return axios.post("/api/movie/save/", cardData)
     }
 }
