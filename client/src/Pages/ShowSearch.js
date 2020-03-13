@@ -4,9 +4,9 @@ import Card from "../Components/Card"
 
 
 
-function Search() {
+function ShowSearch() {
     // Setting our component's initial state
-    const { showSearch, shows, handleSubmit, handleInputChange } = useContext(SearchContext)
+    const { flipped, showSearch, show, handleSubmit, handleInputChange, saveCard } = useContext(SearchContext)
     // const [formObject, setFormObject] = useState({})
 
 
@@ -16,6 +16,10 @@ function Search() {
             <form>
                 <div className="form-group">
                     <label>Search for Show</label>
+                    <div className="btn-group" data-toggle="buttons">
+                        <label className="btn btn-primary"><input type="checkbox" /> Movie</label>
+                        <label className="btn btn-primary"><input type="checkbox" />Show</label>
+                    </div>
                     {/* <br></br>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" id="movieFilter" value="option1"></input>
@@ -29,10 +33,10 @@ function Search() {
                 </div>
                 <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Search</button>
             </form>
-            <Card shows={shows} showSearch={showSearch} ></Card>
+            <Card flipped={flipped} show={show} showSearch={showSearch} saveCard={saveCard}></Card>
         </div>
 
     )
 }
 
-export default Search;
+export default ShowSearch;
