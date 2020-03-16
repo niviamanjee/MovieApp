@@ -23,10 +23,10 @@ router.get("/:id", function (req, res) {
 
 
             showObject = {
-                title: result1.data.results[i].original_name,
-                id: result1.data.results[i].id,
-                summary: result1.data.results[i].overview,
-                image: "https://image.tmdb.org/t/p/w500/" + result1.data.results[i].poster_path
+                title: result1.data.results[0].original_name,
+                id: result1.data.results[0].id,
+                summary: result1.data.results[0].overview,
+                image: "https://image.tmdb.org/t/p/w500/" + result1.data.results[0].poster_path
             }
 
 

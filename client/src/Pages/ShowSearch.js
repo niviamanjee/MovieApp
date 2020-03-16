@@ -1,29 +1,25 @@
 import React, { useContext } from "react";
 import SearchContext from "../utils/SearchContext";
-import CardTV from "../Components/CardTV";
-import '../App.css';
+import CardTV from "../Components/CardTV"
+import NavBar from "../Components/NavBar";
+
 
 function ShowSearch() {
     // Setting our component's initial state
-    const { flipped, showSearch, show, handleSubmit, handleInputChange, saveCard } = useContext(SearchContext)
+    const { flipped, showSearch, show, handleSubmitShows, handleInputChange, saveCardShow } = useContext(SearchContext)
     // const [formObject, setFormObject] = useState({})
 
     return (
         <div>
+            <NavBar />
             <form>
                 <div className="form-group">
-                    <br></br>
-                    <h6 className="lead">Search for Show</h6>
-                    <hr></hr>
+                    <label>Search for Show</label>
                     <input id="query-input" className="form-control" onChange={handleInputChange}></input>
                 </div>
-                <button type="submit" className="btn btn-dark" onClick={handleSubmit}>Search</button>
+                <button type="submit" className="btn btn-primary" onClick={handleSubmitShows}>Search</button>
             </form>
-            <div className="row">
-                <div className="col">
-                    <CardTV flipped={flipped} show={show} showSearch={showSearch} saveCard={saveCard}></CardTV>
-                </div>
-            </div>
+            <CardTV flipped={flipped} show={show} showSearch={showSearch} saveCardShow={saveCardShow}></CardTV>
         </div>
     )
 }

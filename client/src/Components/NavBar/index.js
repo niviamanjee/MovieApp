@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import "./style.css";
+=======
+import "./style.css"
+import SearchContext from '../../utils/SearchContext';
+>>>>>>> ae04f3c991b5fa00ae7da61924ed23e232fdcf36
 
 
 
 const NavBar = () => {
+  const { getShowsSaved } = useContext(SearchContext)
 
 
   return (
@@ -16,7 +22,7 @@ const NavBar = () => {
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav">
           <Link className="nav-item nav-link active" to="/">Home <span class="sr-only">(current)</span></Link>
-          <Link className="nav-item nav-link" to="/save">Saved</Link>
+          <Link className="nav-item nav-link" to="/save" onClick={getShowsSaved}>Saved</Link>
           <Link className="nav-item nav-link" to="/movies">Movies</Link>
           <Link className="nav-item nav-link" to="/shows">Shows</Link>
 
