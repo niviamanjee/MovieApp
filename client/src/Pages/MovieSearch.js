@@ -1,66 +1,31 @@
-import React, { useState, useEffect } from 'react';
-// import './App.css';
-import API_URL from "../utils/API"
-import axios from 'axios';
-import Jumbotron from '../Components/Jumbotron';
-import SearchBar from '../Components/SearchBar';
-import Card from '../Components/Card';
-
+import React, { useContext } from "react";
+import SearchContext from "../utils/SearchContext";
+import Card from "../Components/Card";
+import "../App.css";
 
 function MovieSearch() {
-    const [movies, setMovies] = useState([]);
-//   state = {
-//     movies:[],
-//     titles: '',
-//     releaseDates: '',
-//     overviews: '',
-//     searched: ''
-//   }
-  
-    useEffect(() => {
-        loadMovies();
-    }, [])
+    // Setting our component's initial state
+    const { flipped, movieSearch, movie, handleSubmitMovies, handleInputChangeMovies, saveCard } = useContext(SearchContext)
+    // const [formObject, setFormObject] = useState({})
 
-  function loadMovies() {
-    const url = `${API_URL}`;
-    axios.get(url).then(response => response.data)
-    .then((data) => {
-      setMovies(data.results);
-      
-      console.log(movies)
-      
-    //     this.setState({ movies: data.results })
-    //     // console.log(this.state.movies[0].title)
-    //   //   //loops through movies to get titles, release data, overview
-    //   for (var i = 0; i < data.results.length; i ++) {
-    //     this.setState({ titles: data.results[i].title })
-    //     this.setState({ releaseDates: data.results[i].release_date }) 
-    //     this.setState({ overviews: data.results[i].overview })
-       
-    //     // console.log(this.state.titles +"\n" + "\n"+ this.state.releaseDates +"\n" + "\n" + this.state.overviews + '\n')
-    //   }
-//    console.log(movies)    
-     })
-  }
-    
-    // console.log()
-  return (
-      
-      <>
-    <div className="container">
-    <Jumbotron/>
-      <SearchBar/>
-     <div className="col-xs-8">
-    
-         <Card
-        //  movieTitle = {this.state.movies.results[0].title}
-         />
-
-     </div>
-    </div>
-    </>
- );
+    return (
+      <div>
+        <form>
+          <div className="form-group">
+            <br></br>
+            <h6 className="lead">Search for Movie</h6>
+            <hr></hr>
+            <input id="query-input" className="form-control" onChange={handleInputChangeMovies}></input>
+          </div>
+            <button type="submit" className="btn btn-dark" onClick={handleSubmitMovies}>Search</button>
+        </form>
+        <div className="row">
+          <div className="col">
+          <Card flipped={flipped} movie={movie} movieSearch={movieSearch} saveCard={saveCard}></Card>
+          </div>
+        </div>
+      </div>
+    )
 }
 
-
-export default MovieSearch
+export default MovieSearch;

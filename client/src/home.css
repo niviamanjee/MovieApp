@@ -1,0 +1,27 @@
+body #root {
+    background-image: url('./clapperboard-homepage-background.jpg');
+}
+
+.display-3 {
+    color: #b3995d;
+}
+
+img {
+    width: 250px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;;
+}
+
+.title-container {
+    position: relative;
+    text-align: center;
+    margin-top: 60px;
+}
+
+a {
+    color: #b3995d !important;
+}

@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
+import Home from './Pages/Home';
+import Card from './Components/Card/index.js';
+import CardTV from './Components/CardTV/index.js';
+import NavBar from './Components/NavBar';
 import API from "./utils/API";
-import NavBar from "./Components/NavBar";
 import Wrapper from "./Components/Wrapper"
 // import BlogCard from './Components/BlogCard/index.js';
-import Search from "./Pages/Search"
+import ShowSearch from "./Pages/ShowSearch"
 import Save from "./Pages/Save"
+import MovieSearch from "./Pages/MovieSearch"
 import SearchContext from './utils/SearchContext';
-//import 'bootstrap/dist/css/bootstrap.css';
+import Jumbotron from './Components/Jumbotron';
+// import 'bootstrap/dist/css/bootstrap.css';
 
 
-  function App() {
+function App() {
 
   const [state, setState] = useState({
     // filter= "",
@@ -19,9 +24,9 @@ import SearchContext from './utils/SearchContext';
     flipped: false,
     movieSearch: "",
     showSearch: "",
-    movie: {},
+    movie: [],
     show: {},
-  })
+  });
 
   // useEffect(() => {
   //   loadShows()
@@ -32,26 +37,42 @@ import SearchContext from './utils/SearchContext';
 
   const handleInputChange = (event) => {
     event.preventDefault();
-    console.log(event.target.value)
-
+    // console.log(event.target.value)
+    console.log(event.target.value);
     setState({ ...state, showSearch: event.target.value })
-    console.log(state.showSearch)
-
-  }
+  };
+  
+  const handleInputChangeMovies = (event) => {
+    event.preventDefault();
+    setState({ ...state, movieSearch: event.target.value })
+    // console.log(state.showSearch)
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(state.showSearch)
     API.getShows(state.showSearch)
       .then(res => {
-
         console.log(res.data)
         setState({ ...state, show: res.data })
-      }
+        }
       )
       .catch(err => console.log(err));
-  }
+  };
 
+  const handleSubmitMovies = (event) => {
+    event.preventDefault();
+      // Call Movie API from the backend through Utils folder
+      API.getMovies(state.movieSearch)
+      .then(res => {
+        console.log("jadksflaksfh")
+        console.log(res.data)
+        setState({ ...state, movie: res.data })
+        }
+      )
+      .catch(err => console.log(err));
+    }
+  
   const flip = () => {
     setState({ ...state, flipped: !state.flipped });
   }
@@ -66,38 +87,38 @@ import SearchContext from './utils/SearchContext';
     //if show:set up cardData to match showSchema
     // call appropriate functions based on filter 
 
-    //   var cardData = {
-    //     id: id,
-    //     title: title,
-    //     creator: creators,
-    //     synopsis: summary
-    //   }
+    var cardData = {
+      id: id,
+      title: title,
+      creator: creators,
+      synopsis: summary
+    }
+    console.log(cardData)
 
-
-    //   API.saveShowCard(cardData).then()
-
-    // }
-
+    API.saveShowCard(cardData).then()
 
     // const handleBtnClick = event => {
     //   console.log(state)
     // }
   }
   return (
-    <SearchContext.Provider value={{ ...state, handleSubmit, handleInputChange, flip, saveCard }}>
+    <SearchContext.Provider value={{ ...state, handleSubmit, handleSubmitMovies, handleInputChange,handleInputChangeMovies, flip, saveCard }}>
       <Router>
         <div className="page-container">
           <NavBar />
+          {/* <Jumbotron /> */}
           <Wrapper>
-            <Route exact path="/" component={Search} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/shows" component={ShowSearch} />
             <Route exact path="/save" component={Save} />
-
-           </Wrapper>
-           {/* <Footer></Footer> */}
-         </div>
-       </Router>
-     </SearchContext.Provider>
-      )
-  }
+            <Route exact path="/movies" component={MovieSearch} />
+          </Wrapper>
+          {/* <Card/> */}
+          {/* <Footer></Footer> */}
+        </div>
+      </Router>
+    </SearchContext.Provider>
+  )
+}
 
 export default App;

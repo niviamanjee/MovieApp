@@ -1,4 +1,9 @@
 .navbar {
     background-color: #790805;
-    color: #b3995d;
+}
+.nav-item, .navbar-brand {
+    color: #b3995d !important;
+}
+.navbar-brand {
+    font-weight: bold;
 }

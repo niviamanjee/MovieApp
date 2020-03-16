@@ -4,7 +4,7 @@ import SearchContext from "../../utils/SearchContext"
 import Front from '../Front/index2';
 import Back from '../Back/index2';
 
-const Card = () => {
+const CardTV = () => {
     const { show, flipped, flip, saveCard } = useContext(SearchContext)
     return (
         <div>
@@ -16,4 +16,4 @@ const Card = () => {
     )
 }
 
-export default Card;
+export default CardTV;
