@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
+
 // import './App.css';
-import API_URL from "../utils/API"
-import axios from 'axios';
-import Jumbotron from '../Components/Jumbotron';
-import SearchBar from '../Components/SearchBar';
+import NavBar from "../Components/NavBar";
 import Card from '../Components/Card';
 import React, { useContext } from "react";
 import SearchContext from "../utils/SearchContext";
-import Card from "../Components/Card"
+
 
 function MovieSearch() {
     // Setting our component's initial state
@@ -15,9 +12,9 @@ function MovieSearch() {
     // const [formObject, setFormObject] = useState({})
 
     return (
-        
+
         <div>
-            
+            <NavBar />
             <form>
                 <div className="form-group">
                     <label>Search for Movies</label>

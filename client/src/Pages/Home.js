@@ -1,17 +1,21 @@
 import React from "react";
-import NavBar from "../Components/Navbar";
-import BackgroundImage from "../../public/clapperboard-homepage-background.jpg";
+import NavBar from "../Components/NavBar";
+
+// import BackgroundImage from "../../src/clapperboard-homepage-background.jpg";
 import "../home.css";
 
 function Home() {
     return (
-        <NavBar />
-        <div className="background">
-            <BackgroundImage />
-            <div className="carousel-caption d-block">
-                <h1 className="display-3">
-                    ClapperBoard
+        <div>
+
+            <NavBar />
+            <div className="background">
+                {/* <BackgroundImage /> */}
+                <div className="carousel-caption d-block">
+                    <h1 className="display-3">
+                        ClapperBoard
                 </h1>
+                </div>
             </div>
         </div>
     )

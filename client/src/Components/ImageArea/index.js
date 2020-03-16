@@ -2,14 +2,23 @@ import React, { useContext } from 'react';
 import SearchContext from "../../utils/SearchContext"
 import '../../App.css';
 
-function ImageArea() {
+function ImageArea(props) {
 
-    const { show, flipped } = useContext(SearchContext)
-    const { title, id, summary, image, creators, episode_time, genres, networks, episodes_number, seasons_number, first_air_date, rating } = show
+    const { movie, flipped } = useContext(SearchContext)
+
+    // const { title, image } = props.film
+    console.log(props.movie)
+
+
+
     return (
+
+
         <div className="image-container">
-            <img className="card-image" src={image} alt={title}></img>
+            {/* <img className="card-image" key={title} src={image} alt={title}></img> */}
         </div>
+
+
     )
 }
 export default ImageArea;
