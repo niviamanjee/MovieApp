@@ -1,16 +1,38 @@
-import '../../App.css';
+import React, {useContext} from "react";
+import '../../Components/Card/card.css';
 import SearchContext from "../../utils/SearchContext"
 import Front from '../Front/index';
 import Back from '../Back/index';
+import MovieSearch from "../../Pages/MovieSearch";
 
-const Card = () => {
-    const { show, flipped, flip, saveCard } = useContext(SearchContext)
-    return (
-        <div onMouseEnter={flip} onMouseLeave={flip} className={"card-container" + (flipped ? " flipped" : "")}>
-            <Front show={show} />
-            <Back show={show} saveCard={saveCard} />
+const Card = ({title,titleS, mediaType, airedDate, released, rating, overview, image}) => {
+    const { show, movie, movieSearch, flip, flipped,  saveCard, handleSubmitMoreInfo } = useContext(SearchContext)
+    // const {title, released, overview } = movie
+    // console.log(movie)
+    return (        
+      <>
+        <div className= "flip-card col-3.5">
+        <div className= "flip-card-inner">
+            <Front
+            title ={title}
+            titleS = {titleS}
+            released ={released}
+            overview = {overview}
+            image = {image}
+            mediaType = {mediaType}
+            />
+            <Back 
+            title ={title}
+            released ={released}
+            airedDate = {airedDate}
+            overview = {overview} 
+            rating = {rating}
+            moreInfo = {handleSubmitMoreInfo}
+            />
+        </div>
         </div>
 
+</>
     )
 }
 

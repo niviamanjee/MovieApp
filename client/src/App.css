@@ -12,7 +12,7 @@ body #root {
 }
 body #root .page-container {
   position: relative;
-  width: 100%;
+  width: auto;
   height: 100%;
   display: block;
   perspective: 1000px;
@@ -22,9 +22,10 @@ body #root .page-container .card-container {
   margin: 0;
   padding: 0;
   top: 20px;
-  width: 300px;
+  width: 250px;
   margin-left: 35%;
   margin-right: 35%;
+  margin-bottom: 20px;
   position: relative;
   transform-style: preserve-3d;
   box-sizing: border-box;

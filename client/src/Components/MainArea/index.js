@@ -3,22 +3,35 @@ import '../../App.css';
 import SearchContext from '../../utils/SearchContext';
 
 function MainArea() {
-    const { movie } = useContext(SearchContext)
+    const { movie, movieSearch } = useContext(SearchContext)
+    // const {title, released, overview } = useContext(movieSearch)
 
-    const { title, summary, image } = movie;
+
+
+         
     return (
-        <div className="main-area">
-            <h1 className="lead">
-                {title}
-            </h1>
-            <div className="blog-post">
-                <p className="film-description-abbreviated">
-                    {summary}
-                </p>
-                <p className="read-more">Hover to Read More...</p>
-            </div>
-        </div>
-    )
+        <>
+        </>
+        // <div>
+        //     {movie.map(result => 
+        //         ( 
+        //         <div className="main-area">
+
+        //         <h1 className="lead">
+        //         {result.title}
+        //         </h1>
+        //         <div className="blog-post">
+        //             <p className="film-description-abbreviated">
+        //             {result.released}
+        //             </p>
+        //             <p className="read-more">
+        //                 {result.overview}
+        //             </p>
+        //         </div>
+        //         </div>
+        //          ))}
+        // </div>
+)  
 }
 
 export default MainArea;
