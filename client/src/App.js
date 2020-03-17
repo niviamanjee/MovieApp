@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
-
 import Card from './Components/Card/index.js';
-
-
-
 import Home from "./Pages/Home"
 import API from "./utils/API";
 import NavBar from "./Components/NavBar";
@@ -105,7 +101,7 @@ import Jumbotron from './Components/Jumbotron';
     setState({ ...state, flipped: !state.flipped });
   }
 
-  const saveCard = ( title, overview, released, rating, image) => {
+  const saveCard = ( title, titleS, overview, airedDate, released, rating, image) => {
     // console.log(`Card Title: ${title}`)
     // console.log(`Card Summary: ${overview}`)
     // console.log(`Card Creators: ${released}`)
@@ -115,7 +111,9 @@ import Jumbotron from './Components/Jumbotron';
     // call appropriate functions based on filter 
     var cardData = {
       title: title,
+      titleS: titleS,
       overview: overview,
+      airedDate: airedDate,
       released: released,
       rating: rating,
       image: image

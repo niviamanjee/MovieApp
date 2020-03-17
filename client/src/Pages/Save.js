@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API"
-import Card from "../Components/Card";
+import CardSaved from "../Components/CardSaved";
 import NavBar from "../Components/NavBar"
 // import SearchContext from "../utils/SearchContext";
 // import Card from "../Components/Card"
@@ -28,7 +28,7 @@ function Save() {
         <div className="container">
      <div class="jumbotron jumbotron-fluid">
   <div class="container text-center">
-    <h1 class="display-4">Top Trending Movies & Shows </h1>
+    <h1 class="display-4">Saved Movies/ Shows </h1>
     <p class="lead"></p>
   </div>
 </div>
@@ -37,15 +37,14 @@ function Save() {
                 <div className="row">
                 {savedMovies.map(result =>
                 ( 
-                    <Card 
-                    title ={result.titleM}
-                    titleS ={result.titleS}
-                    released ={result.releaseDate}
-                    airedDate = {result.airedDate}
+                    <CardSaved 
+                    title ={result.title}
+                    released ={result.released}
                     overview = {result.overview}
-                    image = {result.poster}
                     rating = {result.rating}
-                    mediaType={result.mediaType}
+                    image = {result.image}
+                    // rating = {result.rating}
+                    // mediaType={result.mediaType}
 
                     />
             ))}
