@@ -19,5 +19,8 @@ export default {
     },
     saveMovieCard: function (cardData) {
         return axios.post("/api/movie/save/", cardData)
+    },
+    getSavedMovieData: function () {
+        return axios.get("/api/movie/save/")
     }
 }

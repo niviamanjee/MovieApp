@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import '../../Components/Card/card.css';
 import SearchContext from "../../utils/SearchContext"
 
-function Back({title, released, airedDate, rating, overview}) {
+function Back({title, released, airedDate, rating, overview, image}) {
 
   const { movie, saveCard, handleSubmitMoreInfo, moreInfo } = useContext(SearchContext)
   const { id, summary, directors, writers, actors, release, runtime } = movie
@@ -18,7 +18,7 @@ console.log(moreInfo)
       <button className="btn-small" onClick = {handleSubmitMoreInfo}> More Info</button>
       {/* <p className="rotten-tomatoes"><b>Rotten Tomatoes: </b>94 out of 100</p> */}
       <hr />
-      <button class="btn btn-outline-danger btn-sm" onClick={() => saveCard(id, title, directors, summary)}> Save Card</button>
+      <button class="btn btn-outline-danger btn-sm" onClick={() => saveCard( title, overview, released, rating, image)}> Save Card</button>
     </div>
   )
 }

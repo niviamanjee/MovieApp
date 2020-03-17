@@ -34,10 +34,6 @@ import Jumbotron from './Components/Jumbotron';
     moreInfo: ""
   })
 
-  // useEffect(() => {
-  //   loadShows()
-  // }, [state.showSearch])
-
   useEffect(() => {
     saveCard()
     loadTrending()
@@ -47,18 +43,14 @@ import Jumbotron from './Components/Jumbotron';
     event.preventDefault();
     // console.log(event.target.value)
     console.log(event.target.value)
-
     setState({ ...state, showSearch: event.target.value })
-    
     // console.log(state.showSearch)
-
   }
   
   const handleInputChangeMovies = (event) => {
     event.preventDefault();
     setState({ ...state, movieSearch: event.target.value })
     // console.log(state.showSearch)
-
   }
 
   const handleSubmit = (event) => {
@@ -66,7 +58,6 @@ import Jumbotron from './Components/Jumbotron';
     console.log(state.showSearch)
     API.getShows(state.showSearch)
       .then(res => {
-
         console.log(res.data)
         setState({ ...state, show: res.data })
       }
@@ -114,25 +105,23 @@ import Jumbotron from './Components/Jumbotron';
     setState({ ...state, flipped: !state.flipped });
   }
 
-  const saveCard = (id, title, creators, summary) => {
-    // console.log(`Card ID: ${id}`)
+  const saveCard = ( title, overview, released, rating, image) => {
     // console.log(`Card Title: ${title}`)
-    // console.log(`Card Summary: ${summary}`)
-    // console.log(`Card Creators: ${creators}`)
+    // console.log(`Card Summary: ${overview}`)
+    // console.log(`Card Creators: ${released}`)
     //create filter if/then that filters card based on whether it's a movie or show
     //if movie: set up cardData to match movieSchema
     //if show:set up cardData to match showSchema
     // call appropriate functions based on filter 
-
     var cardData = {
-      id: id,
       title: title,
-      creator: creators,
-      synopsis: summary
+      overview: overview,
+      released: released,
+      rating: rating,
+      image: image
     }
     console.log(cardData)
-
-    API.saveShowCard(cardData).then()
+    API.saveMovieCard(cardData).then()
   }
 
   return (
