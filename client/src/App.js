@@ -29,15 +29,22 @@ function App() {
   });
 
   useEffect(() => {
+    if (state.saved === true) {
     saveCardShow()
+    }
   }, [state.saved])
 
   useEffect(() => {
+    if (state.showSearch) {
     getStreamingServices(state.showSearch)
-  }, [state.show])
+    }
+  }, [state.showSearch])
+
   useEffect(() => {
+    if (state.movieSearch) {
     getStreamingServices(state.movieSearch)
-  }, [state.movie])
+    }
+  }, [state.movieSearch])
 
   useEffect(() => {
     getShowsSaved()
