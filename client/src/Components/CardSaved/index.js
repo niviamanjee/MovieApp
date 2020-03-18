@@ -8,10 +8,10 @@ import MovieSearch from "../../Pages/MovieSearch";
 const CardSaved = ({title,titleS, mediaType, airedDate, released, rating, overview, image, deleteCard, cardId}) => {
     const { show, movie, movieSearch, flip, flipped,  saveCard, handleSubmitMoreInfo } = useContext(SearchContext)
     // const {title, released, overview } = movie
-    // console.log(movie)
+    console.log(cardId)
     return (        
       <>
-        <div className= "flip-card col-3.5">
+        <div className= "flip-card col-3.5" data= {cardId}>
         <div className= "flip-card-inner">
             <Front
             title ={title}

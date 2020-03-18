@@ -9,6 +9,7 @@ router
     .get(movieController.findAll)
 
 router
+    .route("/:id")
     .delete(movieController.remove)    
 
 

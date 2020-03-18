@@ -6,7 +6,7 @@ function Back({title, titleS, released, airedDate, rating, overview, image, dele
 
   const { movie, saveCard, handleSubmitMoreInfo, moreInfo } = useContext(SearchContext)
   const { id, summary, directors, writers, actors, release, runtime } = movie
-console.log(moreInfo)
+// console.log(cardId)
   return (
     <div className="flip-card-back">
       <hr />
