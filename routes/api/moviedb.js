@@ -4,10 +4,7 @@ var keys = require("../../text")
 
 const THEMOVIEDB_API_KEY = keys.theMovieDB.secret
 
-
-
 // router.get("/shows/:id", function (req, res) {
-
 
 router.get("/:id", function (req, res) {
 
@@ -76,8 +73,6 @@ router.get("/:id", function (req, res) {
             }
             console.log(error.config);
         });
-
-})
-
+});
 
 module.exports = router;

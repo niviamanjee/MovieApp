@@ -10,6 +10,8 @@ const SearchContext = createContext({
     show: {},
     trending: [],
     moreInfo:{},
+    streaming: [],
+    savedShows: [],
     saveCardClick: (event) => { },
     handleSubmit: (event) => { },
     handleSubmitMovies: (event) => { },
@@ -18,7 +20,9 @@ const SearchContext = createContext({
     handleInputChangeMovies: (event) => { },
     handleInputChange: (event) => { },
     flip: () => { },
-    saveCard: () => { },
+    saveCardShow: () => { },
+    saveCardMovie: () => { },
+    getShowsSaved: () => { },
 })
 
 export default SearchContext;

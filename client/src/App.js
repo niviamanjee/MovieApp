@@ -3,20 +3,21 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import Card from './Components/Card/index.js';
 import Home from "./Pages/Home"
+
+
 import API from "./utils/API";
-import NavBar from "./Components/NavBar";
-import Wrapper from "./Components/Wrapper"
-// import BlogCard from './Components/BlogCard/index.js';
-import ShowSearch from "./Pages/ShowSearch"
-import Save from "./Pages/Save"
-import MovieSearch from "./Pages/MovieSearch"
+import Wrapper from "./Components/Wrapper";
+import ShowSearch from "./Pages/ShowSearch";
+import Save from "./Pages/Save";
+import MovieSearch from "./Pages/MovieSearch";
 import SearchContext from './utils/SearchContext';
 //import 'bootstrap/dist/css/bootstrap.css';
 import Jumbotron from './Components/Jumbotron';
+import NavBar from './Components/NavBar';
 // import 'bootstrap/dist/css/bootstrap.css';
 
 
-  function App() {
+function App() {
 
   const [state, setState] = useState({
     // filter= "",
@@ -27,12 +28,34 @@ import Jumbotron from './Components/Jumbotron';
     trending:[],
     movie: [],
     show: {},
-    moreInfo: ""
+    moreInfo: "",
+    streaming: [],
+    savedShows: []
   })
 
   useEffect(() => {
     saveCard()
     loadTrending()
+  }, []);
+  
+
+  useEffect(() => {
+    if (state.saved === true) {
+      saveCardShow()
+    }
+  }, [state.saved])
+  useEffect(() => {
+    if (state.show) {
+      getStreamingServices(state.showSearch)
+    }
+  }, [state.show])
+  useEffect(() => {
+    if (state.movie) {
+      getStreamingServices(state.movieSearch)
+    }
+  }, [state.movie])
+  useEffect(() => {
+    getShowsSaved()
   }, [])
 
   const handleInputChange = (event) => {
@@ -42,14 +65,14 @@ import Jumbotron from './Components/Jumbotron';
     setState({ ...state, showSearch: event.target.value })
     // console.log(state.showSearch)
   }
-  
+
   const handleInputChangeMovies = (event) => {
     event.preventDefault();
     setState({ ...state, movieSearch: event.target.value })
     // console.log(state.showSearch)
-  }
+  };
 
-  const handleSubmit = (event) => {
+  const handleSubmitShows = (event) => {
     event.preventDefault();
     console.log(state.showSearch)
     API.getShows(state.showSearch)
@@ -65,13 +88,17 @@ import Jumbotron from './Components/Jumbotron';
   const handleSubmitMovies = (event) => {
     event.preventDefault();
       API.getMovies(state.movieSearch)
-      .then(res => {
-        console.log(res.data)
-        setState({ ...state, movie: res.data })
-      }
-      )
-      .catch(err => console.log(err));
   }
+
+  const getShowsSaved = async () => {
+    await API.getSavedShows()
+      .then(res => {
+        console.log("data of saved shows: ", res.data)
+        setState({ ...state, savedShows: res.data })
+      })
+  }
+
+
   // Gather more information on the movie cards
   const handleSubmitMoreInfo = (event) => {
     event.preventDefault();
@@ -105,10 +132,6 @@ import Jumbotron from './Components/Jumbotron';
     // console.log(`Card Title: ${title}`)
     // console.log(`Card Summary: ${overview}`)
     // console.log(`Card Creators: ${released}`)
-    //create filter if/then that filters card based on whether it's a movie or show
-    //if movie: set up cardData to match movieSchema
-    //if show:set up cardData to match showSchema
-    // call appropriate functions based on filter 
     var cardData = {
       title: title,
       titleS: titleS,
@@ -122,13 +145,32 @@ import Jumbotron from './Components/Jumbotron';
     API.saveMovieCard(cardData).then()
   }
 
+  const saveCardShow = (id, image, title, creators, summary) => {
+    console.log(`Card ID: ${id}`)
+    console.log(`Card Title: ${title}`)
+    console.log(`Card Summary: ${summary}`)
+    console.log(`Card Creators: ${creators}`)
+    //create filter if/then that filters card based on whether it's a movie or show
+    //if movie: set up cardData to match movieSchema
+    //if show:set up cardData to match showSchema
+    // call appropriate functions based on filter 
+    var cardData= {
+      title:title,
+      imageUrl: image,
+    creator: creators,
+    synopsis: summary
+    }
+    API.saveShowCard(cardData).then()
+  }
+  // console.log(cardData)
+  
+
+
   return (
-    
-    <SearchContext.Provider value={{ ...state, handleSubmit, handleSubmitMovies, handleInputChange,handleInputChangeMovies, flip, saveCard }}>
+    <SearchContext.Provider value={{ ...state, saveShowCard, handleSubmitShows, handleSubmitMovies, handleInputChange, handleInputChangeMovies, flip, saveCardShow, saveCardMovie, getStreamingServices, getShowsSaved, savecard }}>
       <Router>
         <div className="page-container">
           <NavBar />
-          <Jumbotron/>
           <Wrapper>
             <Route exact path="/" component={Home} />
             <Route exact path="/shows" component={ShowSearch} />
@@ -139,8 +181,6 @@ import Jumbotron from './Components/Jumbotron';
       </Router>
     </SearchContext.Provider>
   )
-
-
 }
 
 export default App;

@@ -14,19 +14,15 @@ const SearchBar = () =>{
 
 
 return (
-<form onSubmit={handleSearch}>
-
-<div className="input-group mb-3" >
-    
-  <input type="text" className="form-control" placeholder="Search Movies/ Shows..." aria-label="Recipient's username" aria-describedby="button-addon2" onChange={e => setSearchMovie(e.target.value)}></input>
-  
-  <div className="input-group-append">
-    <button className="btn btn-outline-secondary bg-success text-dark" type="submit" id="button-addon2">Search</button>
+  <form onSubmit={handleSearch}>
+  <div className="input-group mb-3" >
+    <input type="text" className="form-control" placeholder="Search Movies/ Shows..." aria-label="Recipient's username" aria-describedby="button-addon2" onChange={e => setSearchMovie(e.target.value)}></input>
+    <div className="input-group-append">
+      <button className="btn btn-outline-secondary bg-success text-dark" type="submit" id="button-addon2">Search</button>
+    </div>
   </div>
-
-</div>
-</form>
-        )
+  </form>
+  )
 }
 
 export default SearchBar;

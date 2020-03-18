@@ -14,8 +14,14 @@ export default {
     getMoreInfo: function (info) {
         return axios.get("/api/moreInfo/" + info);
     },
+    getStreaming: function (query) {
+        return axios.get("/api/streaming/" + query);
+},
+    getSavedShows: function () {
+        return axios.get("/api/show/save/");
+    },
     saveShowCard: function (cardData) {
-        return axios.post("/api/show/save/", cardData)
+        return axios.post("/api/show/save/", cardData);
     },
     saveMovieCard: function (cardData) {
         return axios.post("/api/movie/save/", cardData)
@@ -25,5 +31,12 @@ export default {
     },
     deleteCard: function(_id) {
         return axios.delete("/api/movie/save", _id)
+      
+    },
+    deleteShowCard: function (id) {
+        return axios.delete("/api/show/save/", id);
+    },
+    deleteMovieCard: function (id) {
+        return axios.delete("/api/movie/save/", id);
     }
 }
