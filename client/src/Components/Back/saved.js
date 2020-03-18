@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import '../../Components/Card/card.css';
 import SearchContext from "../../utils/SearchContext"
 
-function Back({title, titleS, released, airedDate, rating, overview, image}) {
+function Back({title, titleS, released, airedDate, rating, overview, image, deleteCard, cardId}) {
 
   const { movie, saveCard, handleSubmitMoreInfo, moreInfo } = useContext(SearchContext)
   const { id, summary, directors, writers, actors, release, runtime } = movie
-console.log(moreInfo)
+// console.log(cardId)
   return (
     <div className="flip-card-back">
       <hr />
@@ -15,9 +15,11 @@ console.log(moreInfo)
       <hr />
       <p className="imdb-rating" alt= {image}><b>IMDb Rating: </b>{rating} out of 10</p>
       <hr/>
+      
       {/* <p className="rotten-tomatoes"><b>Rotten Tomatoes: </b>94 out of 100</p> */}
       <hr />
-      <button class="btn btn-outline-danger btn-sm" onClick={() => saveCard( title, titleS, overview, airedDate, released, rating, image)}> Save Card</button>
+      {/* <button class="btn btn-outline-danger btn-sm" onClick={() => saveCard( title, titleS, overview, airedDate, released, rating, image)}> Save Card</button> */}
+      <button class="btn btn-outline-danger btn-sm" onClick ={() => deleteCard({cardId})}> Delete</button>
     </div>
   )
 }

@@ -1,10 +1,16 @@
 const router = require("express").Router();
 const movieController = require("../../controllers/movieController");
 
-// Matches with "/api/movies"
-router.route("/")
-    .post(movieController.createMovie)
-    .get(movieController.findAllMovie)
+router
+    .route("/")
+    // This route post the saved movies to MongoDb
+    .post(movieController.saveMovie)
+    // This route gets the saved data from MongoDB
+    .get(movieController.findAll)
+
+router
+    .route("/:id")
+    .delete(movieController.remove)    
 
 // Matches with "/api/movies/:id"
 router
