@@ -4,14 +4,13 @@ import './App.css';
 import Home from "./Pages/Home"
 
 import API from "./utils/API";
-import Wrapper from "./Components/Wrapper"
-// import BlogCard from './Components/BlogCard/index.js';
-import ShowSearch from "./Pages/ShowSearch"
-import Save from "./Pages/Save"
-import MovieSearch from "./Pages/MovieSearch"
+import Wrapper from "./Components/Wrapper";
+import ShowSearch from "./Pages/ShowSearch";
+import Save from "./Pages/Save";
+import MovieSearch from "./Pages/MovieSearch";
 import SearchContext from './utils/SearchContext';
-//import 'bootstrap/dist/css/bootstrap.css';=======
 import Jumbotron from './Components/Jumbotron';
+import NavBar from './Components/NavBar';
 // import 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -143,6 +142,7 @@ function App() {
     <SearchContext.Provider value={{ ...state, handleSubmitShows, handleSubmitMovies, handleInputChange, handleInputChangeMovies, flip, saveCardShow, saveCardMovie, getStreamingServices, getShowsSaved }}>
       <Router>
         <div className="page-container">
+          <NavBar />
           <Wrapper>
             <Route exact path="/" component={Home} />
             <Route exact path="/shows" component={ShowSearch} />

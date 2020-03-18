@@ -1,13 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
-import "./style.css";
-=======
 import "./style.css"
 import SearchContext from '../../utils/SearchContext';
->>>>>>> ae04f3c991b5fa00ae7da61924ed23e232fdcf36
-
-
 
 const NavBar = () => {
   const { getShowsSaved } = useContext(SearchContext)

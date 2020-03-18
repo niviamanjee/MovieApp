@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const movieSchema = new Schema({
     title: { type: String, required: true },
-    director: { type: String, required: true },
+    imageUrl: { type: String },
+    director: { type: [String], required: true },
     synopsis: String,
     date: { type: Date, default: Date.now }
 });

@@ -26,11 +26,7 @@ function Back() {
       <p className="imdb-rating"><b>IMDb Rating: </b>8.5 out of 10</p>
       <p className="rotten-tomatoes"><b>Rotten Tomatoes: </b>94 out of 100</p>
       <hr />
-<<<<<<< HEAD
-      <button class="btn btn-outline-danger btn-sm" onClick={() => saveCard(id, title, summary)}> Save Card</button>
-=======
       <button class="btn btn-outline-danger btn-sm" onClick={() => saveCard(id, title, directors, summary)}> Save Card</button>
->>>>>>> ae04f3c991b5fa00ae7da61924ed23e232fdcf36
     </div>
   )
 }

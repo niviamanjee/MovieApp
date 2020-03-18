@@ -4,10 +4,7 @@ var keys = require("../../text")
 
 const THEMOVIEDB_API_KEY = keys.theMovieDB.secret
 
-
-
 // router.get("/shows/:id", function (req, res) {
-
 
 router.get("/:id", function (req, res) {
 
@@ -19,22 +16,20 @@ router.get("/:id", function (req, res) {
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${THEMOVIEDB_API_KEY}&query=${movie}&page=1`).then(
         function (result) {
             // console.log('Movie result:', result.data)
-          for (var i = 0; i < result.data.results.length; i++) {
-            movieObject = {
-              title: result.data.results[i].original_title,
-              releaseDate: result.data.results[i].release_date,
-              overview: result.data.results[i].overview,
-              poster: result.data.results[i].poster_path,
-              
-          }
-          
-          movieArr.push(movieObject)
-          // console.log(arr)
-          }
-          res.json(movieArr)
-            
+            for (var i = 0; i < result.data.results.length; i++) {
+                movieObject = {
+                    title: result.data.results[i].original_title,
+                    releaseDate: result.data.results[i].release_date,
+                    overview: result.data.results[i].overview,
+                    poster: result.data.results[i].poster_path,
+                };
+                movieArr.push(movieObject)
+                // console.log(arr)
+            }
+            res.json(movieArr);
             // console.log(movieObject)
-        }).catch(function (error) {
+        })
+        .catch(function (error) {
             if (error.res) {
             } else if (error.request) {
                 // The request was made but no response was received
@@ -46,8 +41,6 @@ router.get("/:id", function (req, res) {
             }
             console.log(error.config);
         });
-
-})
-
+});
 
 module.exports = router;

@@ -15,7 +15,6 @@ function MainArea() {
             <div key={film.title} className="blog-post">
                 <p className="film-description-abbreviated">
                     {film.summary}
-
                 </p>
                 <p className="read-more">Hover to Read More...</p>
             </div>
@@ -24,7 +23,6 @@ function MainArea() {
 
     return (
         <div>
-
             {card}
         </div>
     )

@@ -6,8 +6,8 @@ import Logo from '../clapperboard-logo-1.png';
 function Home() {
     return (
         <div>
-            <img src={Logo} alt="Logo" className="center"></img>
-            <div className="title-container">
+            <img src={Logo} alt="Logo" className="center-photo"></img>
+            <div className="title-container centered">
                 <h1 className="display-3">
                     <b>ClapperBoard</b>
                 </h1>
