@@ -30,6 +30,7 @@ const Card = ({title,titleS, mediaType, airedDate, released, rating, overview, i
             rating = {rating}
             moreInfo = {handleSubmitMoreInfo}
             image = {image}
+            mediaType = {mediaType}
             />
         </div>
         </div>

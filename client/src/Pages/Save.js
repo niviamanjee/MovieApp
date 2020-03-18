@@ -3,9 +3,9 @@ import API from "../utils/API"
 import CardSaved from "../Components/CardSaved";
 import NavBar from "../Components/NavBar"
 import "./MovieSearch.css"
-// import React, { useContext } from "react";
+import Film from "../apple-touch-icon.png"
 import SearchContext from "../utils/SearchContext";
-// import "../App.css";
+import Logo from "../clapperboard-logo-1.png";
 
 function Save() {
     // Setting our component's initial state
@@ -33,7 +33,7 @@ function Save() {
     };
 
     function deleteCard(_id) {
-        API.deleteCard(_id)
+        API.deleteMovieCard(_id)
             .then(res => loadMovies())
             .catch(err => console.log(err));
             console.log()
@@ -41,19 +41,19 @@ function Save() {
 
     return (
         <>
+        
         <div className="container ">
-            <div className="savedJumbotron">
-            <div class="jumbotron fluid-jumbotron ">
-  <div class="container text-center">
-    <h1 class="display-4">My Saved Movies </h1>
-    <p class="lead"></p>
-  </div>
-</div>
-            </div>
-  
+        <img src={Logo} alt="Logo" className="center-photo"></img>
+            <div className='movie-holder'>
+                <h1 className='movieTitle'>SAVED MOVIES <span>
+                    {/* <img src={Film} className="film" width="100" height='50'></img> */}
+                    </span>
+                    </h1>
+                    </div>
+       
 <br/>
-<NavBar/>
-<div className=' wrapper'>
+
+<div className=''>
                 <div className="row">
                 {savedMovies.map(result =>
                 ( 
@@ -73,6 +73,7 @@ function Save() {
             </div>
         </div>
      </div>
+
         <div>
             <br></br>
             <h2 className="gold centered">Saved Shows</h2>

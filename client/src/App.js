@@ -88,7 +88,14 @@ function App() {
   const handleSubmitMovies = (event) => {
     event.preventDefault();
       API.getMovies(state.movieSearch)
+        .then(res => {
+          // console.log(res.data)
+          setState({ ...state, movie: res.data })
+        }
+        )
+        .catch(err => console.log(err));
   }
+
 
   const getShowsSaved = async () => {
     await API.getSavedShows()
@@ -97,20 +104,27 @@ function App() {
         setState({ ...state, savedShows: res.data })
       })
   }
-
+  const getStreamingServices = (query) => {
+    API.getStreaming(query)
+      .then(res => {
+        console.log("Streaming data:", res.data)
+        setState({ ...state, streaming: res.data })
+        console.log("streaming state:", state.streaming)
+      })
+  }
 
   // Gather more information on the movie cards
-  const handleSubmitMoreInfo = (event) => {
-    event.preventDefault();
+  // const handleSubmitMoreInfo = (event) => {
+  //   event.preventDefault();
      
-      API.getMoreInfo(state.moreInfo)
-      .then(res => {
-        console.log(res.data)
-        setState({ ...state, moreInfo:  res.data})
-      }
-      )
-      .catch(err => console.log(err));
-  }
+  //     API.getMoreInfo(state.moreInfo)
+  //     .then(res => {
+  //       console.log(res.data)
+  //       setState({ ...state, moreInfo:  res.data})
+  //     }
+  //     )
+  //     .catch(err => console.log(err));
+  // }
 
  //Set the trending movies/ shows on the home page
  function loadTrending() {
@@ -167,7 +181,7 @@ function App() {
 
 
   return (
-    <SearchContext.Provider value={{ ...state, saveShowCard, handleSubmitShows, handleSubmitMovies, handleInputChange, handleInputChangeMovies, flip, saveCardShow, saveCardMovie, getStreamingServices, getShowsSaved, savecard }}>
+    <SearchContext.Provider value={{ ...state, handleSubmitShows, handleSubmitMovies, handleInputChange, handleInputChangeMovies, flip, saveCardShow, getStreamingServices, getShowsSaved,saveCard }}>
       <Router>
         <div className="page-container">
           <NavBar />
@@ -177,6 +191,7 @@ function App() {
             <Route exact path="/save" component={Save} />
             <Route exact path="/movies" component={MovieSearch} />
           </Wrapper>
+         
         </div>
       </Router>
     </SearchContext.Provider>

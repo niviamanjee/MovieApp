@@ -1,6 +1,6 @@
 const router = require("express").Router();
 var keys = require("../../text")
-const unirest = require("unirest");
+// const unirest = require("unirest");
 
 const utellyAPI_Key = keys.theMovieDB.utelly
 
