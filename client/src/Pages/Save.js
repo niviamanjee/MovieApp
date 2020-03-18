@@ -13,7 +13,7 @@ function Save() {
     return (
         <div>
             <br></br>
-            <h2 className="gold centered">Saved Shows</h2>
+            <h2 className="gold centered">Saved Movies and Shows</h2>
             <div> {savedShows.map(show =>
                 <div key={show.key}>
                     <img src={show.imageUrl} alt={show.title}></img>

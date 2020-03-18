@@ -6,10 +6,9 @@ import SearchContext from "../../utils/SearchContext"
 function Back() {
 
   const { show, saveCardShow, streaming } = useContext(SearchContext)
-  console.log(streaming)
-  const { title, id, summary, image, creators, actors, episode_time, genres, networks, episodes_number, seasons_number, first_air_date, rating } = show
+  console.log(streaming);
+  const { title, id, summary, image, creators, actors, episode_time, genres, networks, episodes_number, seasons_number, first_air_date, rating } = show;
   var streamingViews = streaming.map(stream => (
-
     <li key={streaming.service} ><a class="btn btn-outline-danger btn-sm" onClick={() => window.open(stream.url, "_blank")} role="button">{stream.service}</a></li>
   ))
   console.log(streamingViews)
