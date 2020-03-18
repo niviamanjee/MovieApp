@@ -27,12 +27,17 @@ function App() {
     streaming: [],
     savedShows: []
   });
-  
+
   useEffect(() => {
     saveCardShow()
+  }, [state.saved])
+
+  useEffect(() => {
     getStreamingServices(state.showSearch)
+  }, [state.show])
+  useEffect(() => {
     getStreamingServices(state.movieSearch)
-  }, [state.saved, state.show, state.movie])
+  }, [state.movie])
 
   useEffect(() => {
     getShowsSaved()
@@ -59,7 +64,7 @@ function App() {
       .then(res => {
         console.log(res.data)
         setState({ ...state, show: res.data })
-        }
+      }
       )
       .catch(err => console.log(err));
   }
@@ -81,7 +86,7 @@ function App() {
         console.log("jadksflaksfh")
         console.log(res.data)
         setState({ ...state, movie: res.data })
-        }
+      }
       )
       .catch(err => console.log(err));
   }
@@ -94,7 +99,7 @@ function App() {
         console.log("streaming state:", state.streaming)
       })
   }
-  
+
   const flip = () => {
     setState({ ...state, flipped: !state.flipped });
   }
