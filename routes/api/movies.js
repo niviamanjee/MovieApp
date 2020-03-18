@@ -8,5 +8,8 @@ router
     // This route gets the saved data from MongoDB
     .get(movieController.findAll)
 
+router
+    .delete(movieController.remove)    
+
 
 module.exports = router;

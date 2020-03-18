@@ -5,7 +5,7 @@ import Front from '../Front/saved';
 import Back from '../Back/saved';
 import MovieSearch from "../../Pages/MovieSearch";
 
-const CardSaved = ({title,titleS, mediaType, airedDate, released, rating, overview, image}) => {
+const CardSaved = ({title,titleS, mediaType, airedDate, released, rating, overview, image, deleteCard, cardId}) => {
     const { show, movie, movieSearch, flip, flipped,  saveCard, handleSubmitMoreInfo } = useContext(SearchContext)
     // const {title, released, overview } = movie
     // console.log(movie)
@@ -27,6 +27,8 @@ const CardSaved = ({title,titleS, mediaType, airedDate, released, rating, overvi
             overview = {overview} 
             rating = {rating}
             image = {image}
+            deleteCard = {deleteCard}
+            cardId = {cardId}
             />
         </div>
         </div>

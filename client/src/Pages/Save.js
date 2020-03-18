@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "../utils/API"
 import CardSaved from "../Components/CardSaved";
 import NavBar from "../Components/NavBar"
-// import SearchContext from "../utils/SearchContext";
-// import Card from "../Components/Card"
+import "./MovieSearch.css"
 
 function Save() {
     // Setting our component's initial state
@@ -24,14 +23,25 @@ function Save() {
             console.log(API.getSavedMovieData) 
     };
 
+    function deleteCard(_id) {
+        API.deleteCard(_id)
+            .then(res => loadMovies())
+            .catch(err => console.log(err));
+            console.log()
+    }
+
     return (
-        <div className="container">
-     <div class="jumbotron jumbotron-fluid">
+        <div className="container ">
+            <div className="savedJumbotron">
+            <div class="jumbotron fluid-jumbotron ">
   <div class="container text-center">
-    <h1 class="display-4">Saved Movies/ Shows </h1>
+    <h1 class="display-4">My Saved Movies </h1>
     <p class="lead"></p>
   </div>
 </div>
+            </div>
+  
+<br/>
 <NavBar/>
 <div className=' wrapper'>
                 <div className="row">
@@ -43,6 +53,8 @@ function Save() {
                     overview = {result.overview}
                     rating = {result.rating}
                     image = {result.image}
+                    deleteCard = {deleteCard}
+                    cardId = {result._id}
                     // rating = {result.rating}
                     // mediaType={result.mediaType}
 

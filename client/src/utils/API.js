@@ -22,5 +22,8 @@ export default {
     },
     getSavedMovieData: function () {
         return axios.get("/api/movie/save/")
+    },
+    deleteCard: function(_id) {
+        return axios.delete("/api/movie/save", _id)
     }
 }

@@ -10,7 +10,7 @@ function MovieSearch() {
     const { movieSearch, movie, handleSubmitMovies, handleInputChangeMovies, handleSubmitMoreInfo } = useContext(SearchContext)
     
     return (
-        <div className="container">
+        <div className="container xxx">
             <form>
                 <div className="form-group">
                     <label>Search for Movies</label>
