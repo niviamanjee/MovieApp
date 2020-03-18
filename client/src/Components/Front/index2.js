@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import '../../App.css';
-import ImageArea from '../ImageArea/index';
-import MainArea from '../MainArea/index';
+import ImageArea from '../ImageArea/index2';
+import MainArea from '../MainArea/index2';
 import SearchContext from "../../utils/SearchContext";
 
 function Front() {

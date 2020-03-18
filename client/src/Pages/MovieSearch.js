@@ -1,42 +1,27 @@
-import React, { useState, useEffect } from 'react';
-// import './App.css';
-import API_URL from "../utils/API"
-import axios from 'axios';
-import Jumbotron from '../Components/Jumbotron';
-import SearchBar from '../Components/SearchBar';
-import Card from '../Components/Card';
 import React, { useContext } from "react";
 import SearchContext from "../utils/SearchContext";
-import Card from "../Components/Card"
+import Card from "../Components/Card";
+import "../App.css";
 
 function MovieSearch() {
-    // Setting our component's initial state
-    const { movieSearch, movie, handleSubmitMovies, handleInputChangeMovies } = useContext(SearchContext)
-    // const [formObject, setFormObject] = useState({})
+  // Setting our component's initial state
+  const { flipped, movieSearch, movie, handleSubmitMovies, handleInputChangeMovies, saveCard } = useContext(SearchContext)
+  // const [formObject, setFormObject] = useState({})
 
     return (
-        
         <div>
-            
-            <form>
-                <div className="form-group">
-                    <label>Search for Movies</label>
-                    {/* <br></br>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="movieFilter" value="option1"></input>
-                        <label class="form-check-label" for="movieFilter">movie</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="showFilter" value="option2"></input>
-                        <label class="form-check-label" for="showFilter">show</label>
-                    </div> */}
-                    <input id="query-input" className="form-control" onChange={handleInputChangeMovies}></input>
-                </div>
-                <button type="submit" className="btn btn-primary" onClick={handleSubmitMovies}>Search</button>
-            </form>
-            <Card movie={movie} movieSearch={movieSearch} ></Card>
+          <br></br>
+          <form>
+            <div className="form-group">
+              <label className="lead gold"><b>Search For a Movie</b></label>
+              <hr></hr>
+                <input id="query-input" className="form-control" onChange={handleInputChangeMovies}></input>
+            </div>
+            <button type="submit" className="btn btn-outline-light" onClick={handleSubmitMovies}>Search</button>
+          </form>
+          <Card flipped={flipped} movie={movie} movieSearch={movieSearch} ></Card>
         </div>
     )
 }
 
-export default MovieSearch
+export default MovieSearch;

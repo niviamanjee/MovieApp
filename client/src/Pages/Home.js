@@ -1,17 +1,22 @@
 import React from "react";
-import NavBar from "../Components/Navbar";
-import BackgroundImage from "../../public/clapperboard-homepage-background.jpg";
+import { Link } from "react-router-dom";
 import "../home.css";
+import Logo from '../clapperboard-logo-1.png';
 
 function Home() {
     return (
-        <NavBar />
-        <div className="background">
-            <BackgroundImage />
-            <div className="carousel-caption d-block">
+        <div>
+            <img src={Logo} alt="Logo" className="center-photo"></img>
+            <div className="title-container centered">
                 <h1 className="display-3">
-                    ClapperBoard
+                    <b>ClapperBoard</b>
                 </h1>
+                <br></br>
+                <br></br>
+                <br></br>
+                <button className="btn btn-outline-light btn-lg"><Link to="/movies" style={{textDecoration: 'none'}}>Movie Search</Link></button>
+                <button className="btn btn-outline-light btn-lg"><Link to="/shows" style={{textDecoration: 'none'}}>TV Search</Link></button>
+                <button className="btn btn-outline-light btn-lg"><Link to="/save" style={{textDecoration: 'none'}}>Saved</Link></button>
             </div>
         </div>
     )

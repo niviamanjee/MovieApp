@@ -4,8 +4,8 @@ import SearchContext from '../../utils/SearchContext';
 
 function MainArea() {
     const { show } = useContext(SearchContext)
-
     const { title, summary, image } = show;
+    
     return (
         <div className="main-area">
             <h1 className="lead">
