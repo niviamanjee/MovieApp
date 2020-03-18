@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import '../../App.css';
-import { Link } from "react-router-dom";
+import '../../Components/Card/card.css';
 import SearchContext from "../../utils/SearchContext"
 
 function Back() {
@@ -10,12 +9,12 @@ function Back() {
   const { title, id, summary, image, creators, actors, episode_time, genres, networks, episodes_number, seasons_number, first_air_date, rating } = show
   var streamingViews = streaming.map(stream => (
 
-    <li key={streaming.service} ><a class="btn btn-outline-danger btn-sm" onClick={() => window.open(stream.url, "_blank")} role="button">{stream.service}</a></li>
+    <a key={streaming.service} class="btn btn-outline-danger btn-sm" onClick={() => window.open(stream.url, "_blank")} role="button">{stream.service}</a>
   ))
   console.log(streamingViews)
 
   return (
-    <div className="back">
+    <div className="flip-card-back">
       <p className="show-description">
         {summary}
       </p>
@@ -31,10 +30,11 @@ function Back() {
       <p className="show-networks"><b>Network(s): </b>{networks}</p>
       <hr />
       <a class="btn btn-outline-danger btn-sm" href="#" role="button">YouTube It!</a>
-      <ul>
-        {streamingViews}
-      </ul>
-      <button class="btn btn-outline-danger btn-sm" onClick={() => saveCardShow(id, image, title, creators, summary)}> Save Card</button>
+
+      {streamingViews}
+      <br></br>
+      <button class="btn btn-outline-danger btn-sm" onClick={() => saveCardShow(image, title, creators, summary, episode_time,
+        genres, networks, episodes_number, seasons_number, first_air_date, rating)}> Save Card</button>
     </div>
   )
 }

@@ -1,25 +1,42 @@
+
+// import './App.css';
 import React, { useContext } from "react";
 import SearchContext from "../utils/SearchContext";
-import Card from "../Components/Card";
-import "../App.css";
+import Card from "../Components/Card"
+import "./MovieSearch.css"
 
 function MovieSearch() {
-  // Setting our component's initial state
-  const { flipped, movieSearch, movie, handleSubmitMovies, handleInputChangeMovies, saveCard } = useContext(SearchContext)
-  // const [formObject, setFormObject] = useState({})
+    // Setting our component's initial state
+    const { movieSearch, movie, handleSubmitMovies, handleInputChangeMovies, handleSubmitMoreInfo, streaming } = useContext(SearchContext)
 
     return (
-        <div>
-          <br></br>
-          <form>
-            <div className="form-group">
-              <label className="lead gold"><b>Search For a Movie</b></label>
-              <hr></hr>
-                <input id="query-input" className="form-control" onChange={handleInputChangeMovies}></input>
+        <div className="container xxx">
+            <form>
+                <div className="form-group">
+                    <label>Search for Movies</label>
+                    <input id="query-input" className="form-control" onChange={handleInputChangeMovies}></input>
+                </div>
+                <button type="submit" className="btn-lg" onClick={handleSubmitMovies}>Search</button>
+            </form>
+            <div className=' wrapper'>
+                <div className="row">
+                    {movie.map(result =>
+                        (
+                            <Card
+                                title={result.title}
+                                released={result.releaseDate}
+                                overview={result.overview}
+                                image={result.poster}
+                                rating={result.rating}
+                                movie={movie}
+                                movieSearch={movieSearch}
+                                moreInfo={handleSubmitMoreInfo}
+                                streaming={streaming} />
+                        ))}
+                </div>
+
             </div>
-            <button type="submit" className="btn btn-outline-light" onClick={handleSubmitMovies}>Search</button>
-          </form>
-          <Card flipped={flipped} movie={movie} movieSearch={movieSearch} ></Card>
+
         </div>
     )
 }

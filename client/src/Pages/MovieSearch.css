@@ -1,0 +1,16 @@
+
+.xxx {
+    background-color: #b3995d;
+    padding: 50px 50px;
+    border: solid 5px maroon;
+    border-radius: 10px;
+}
+button{
+    background-color: maroon; 
+    color: #b3995d;
+    font-weight: bold;
+}
+
+.savedJumbotron {
+    border: solid 5px maroon;
+}

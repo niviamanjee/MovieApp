@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
 import '../../Components/Card/card.css';
-import ImageArea from '../ImageArea/index';
-import MainArea from '../MainArea/index';
 import SearchContext from "../../utils/SearchContext";
 
 function Front({title, titleS, mediaType, released, overview, image}) {
