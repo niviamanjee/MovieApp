@@ -17,7 +17,7 @@ function Back({title, titleS, released, airedDate, rating, overview, image, dele
         <p className="imdb-rating" alt= {image}><b>IMDb Rating: </b>{rating} out of 10</p>
         <hr/>
       {/* <p className="rotten-tomatoes"><b>Rotten Tomatoes: </b>94 out of 100</p> */}
-      <button class="btn btn-outline-danger btn-sm" onClick ={() => deleteCard(cardId)}> Delete</button>
+      <button class="btn btn-outline-danger btn-sm" onClick ={() => deleteCard(cardId)}> Delete <i class="fas fa-trash"></i></button>
       </div>
     </div>
 

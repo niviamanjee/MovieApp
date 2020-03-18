@@ -3,7 +3,6 @@ import API from "../utils/API"
 import CardSaved from "../Components/CardSaved";
 import NavBar from "../Components/NavBar"
 import "./MovieSearch.css"
-import Film from "../apple-touch-icon.png"
 import SearchContext from "../utils/SearchContext";
 import Logo from "../clapperboard-logo-1.png";
 
@@ -41,19 +40,16 @@ function Save() {
 
     return (
         <>
-        
         <div className="container ">
-        <img src={Logo} alt="Logo" className="center-photo"></img>
+            <img src={Logo} alt="Logo" className="center-photo"></img>
             <div className='movie-holder'>
-                <h1 className='movieTitle'>SAVED MOVIES <span>
-                    {/* <img src={Film} className="film" width="100" height='50'></img> */}
-                    </span>
-                    </h1>
-                    </div>
-       
-<br/>
-
-<div className=''>
+                <h1 className='movieTitle'> <span>
+                <i class="fas fa-film"></i> </span> SAVED MOVIES <span>
+                <i class="fas fa-film"></i></span>
+                </h1>
+            </div>
+            <br/>
+           
                 <div className="row">
                 {savedMovies.map(result =>
                 ( 
@@ -65,13 +61,9 @@ function Save() {
                     image = {result.image}
                     deleteCard = {deleteCard}
                     cardId = {result._id}
-                    // rating = {result.rating}
-                    // mediaType={result.mediaType}
-
                     />
             ))}
             </div>
-        </div>
      </div>
 
         <div>

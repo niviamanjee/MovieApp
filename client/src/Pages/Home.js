@@ -7,9 +7,7 @@ import Logo from '../clapperboard-logo-1.png';
 
 function Home() {
     const { trending } = useContext(SearchContext)
-    
-    // console.log(trending.indexOf("star"))
-   
+
     return (
         <>
      
@@ -36,6 +34,7 @@ function Home() {
                 <div class="container text-center">
                     <h1 class="display-4">Top Trending Movies & Shows </h1>
                         <p class="lead">This week trending movies and shows.</p>
+                        <p></p>
                 </div>
         </div>
             

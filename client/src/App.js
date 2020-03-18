@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
-import Card from './Components/Card/index.js';
 import Home from "./Pages/Home"
-
-
 import API from "./utils/API";
 import Wrapper from "./Components/Wrapper";
 import ShowSearch from "./Pages/ShowSearch";
 import Save from "./Pages/Save";
 import MovieSearch from "./Pages/MovieSearch";
 import SearchContext from './utils/SearchContext';
-//import 'bootstrap/dist/css/bootstrap.css';
-import Jumbotron from './Components/Jumbotron';
 import NavBar from './Components/NavBar';
-// import 'bootstrap/dist/css/bootstrap.css';
+
 
 
 function App() {
@@ -143,9 +138,6 @@ function App() {
   }
 
   const saveCard = ( title, titleS, overview, airedDate, released, rating, image) => {
-    // console.log(`Card Title: ${title}`)
-    // console.log(`Card Summary: ${overview}`)
-    // console.log(`Card Creators: ${released}`)
     var cardData = {
       title: title,
       titleS: titleS,
@@ -176,10 +168,7 @@ function App() {
     }
     API.saveShowCard(cardData).then()
   }
-  // console.log(cardData)
   
-
-
   return (
     <SearchContext.Provider value={{ ...state, handleSubmitShows, handleSubmitMovies, handleInputChange, handleInputChangeMovies, flip, saveCardShow, getStreamingServices, getShowsSaved,saveCard }}>
       <Router>
@@ -191,7 +180,6 @@ function App() {
             <Route exact path="/save" component={Save} />
             <Route exact path="/movies" component={MovieSearch} />
           </Wrapper>
-         
         </div>
       </Router>
     </SearchContext.Provider>

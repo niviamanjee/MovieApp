@@ -6,21 +6,20 @@ import Card from "../Components/Card"
 import "./MovieSearch.css"
 import Jumbotron from "../Components/Jumbotron";
 import Logo from "../clapperboard-logo-1.png"
-import Film from "../film-image.png"
+
 
 function MovieSearch() {
     // Setting our component's initial state
-    const { movieSearch, movie, handleSubmitMovies, handleInputChangeMovies, handleSubmitMoreInfo } = useContext(SearchContext)
-    console.log(movie)
+    const { movieSearch, movie, handleSubmitMovies, handleInputChangeMovies, handleSubmitMoreInfo, getStreamingServices, streaming } = useContext(SearchContext)
+    // console.log(streaming)
     return (
         <>
         <div className='container logo-holder'>
             <img src={Logo} alt="Logo" className="center-photo"></img>
             <div className='movie-holder'>
-                <h1 className='movieTitle'>MOVIES <span>
-                    {/* <img src={Film} className="film" width="100" height='50'></img> */}
-                    </span>
-                    </h1>
+                <h1 className='movieTitle'> <span><i class="fas fa-ticket-alt"></i></span> MOVIES 
+                <span> <i class="fas fa-ticket-alt"></i></span>
+                </h1>
                 {/* SEARCH BAR */}
                 <div class="container input-group mb-3">
                     <div class="input-group-prepend">

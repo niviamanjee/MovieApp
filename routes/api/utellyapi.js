@@ -1,6 +1,6 @@
 const router = require("express").Router();
 var keys = require("../../text")
-// const unirest = require("unirest");
+const unirest = require("unirest");
 
 const utellyAPI_Key = keys.theMovieDB.utelly
 
@@ -16,7 +16,7 @@ router.get("/:id", function (req, res) {
 
     request.headers({
         "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
-        "x-rapidapi-key": "7fd5912b71mshbf225cfb6b43703p13c811jsne79c945dce04"
+        "x-rapidapi-key": utellyAPI_Key
     });
 
 
