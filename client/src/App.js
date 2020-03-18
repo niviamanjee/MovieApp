@@ -29,14 +29,21 @@ function App() {
   });
 
   useEffect(() => {
-    saveCardShow()
+    if (state.saved === true) {
+      saveCardShow()
+    }
   }, [state.saved])
 
   useEffect(() => {
-    getStreamingServices(state.showSearch)
+    if (state.show) {
+
+      getStreamingServices(state.showSearch)
+    }
   }, [state.show])
   useEffect(() => {
-    getStreamingServices(state.movieSearch)
+    if (state.movie) {
+      getStreamingServices(state.movieSearch)
+    }
   }, [state.movie])
 
   useEffect(() => {
@@ -80,15 +87,15 @@ function App() {
   const handleSubmitMovies = async (event) => {
     event.preventDefault();
     // Call Movie API from the backend through Utils folder
-    await getStreamingServices(state.movieSearch)
-    API.getMovies(state.movieSearch)
-      .then(res => {
-        console.log("jadksflaksfh")
-        console.log(res.data)
-        setState({ ...state, movie: res.data })
-      }
-      )
-      .catch(err => console.log(err));
+    // await getStreamingServices(state.movieSearch)
+    // API.getMovies(state.movieSearch)
+    //   .then(res => {
+    //     console.log("jadksflaksfh")
+    //     console.log(res.data)
+    //     setState({ ...state, movie: res.data })
+    //   }
+    //   )
+    //   .catch(err => console.log(err));
   }
 
   const getStreamingServices = (query) => {
