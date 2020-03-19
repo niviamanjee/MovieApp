@@ -3,9 +3,8 @@ import API from "../utils/API"
 import CardSaved from "../Components/CardSaved";
 import NavBar from "../Components/NavBar"
 import "./MovieSearch.css"
-// import React, { useContext } from "react";
 import SearchContext from "../utils/SearchContext";
-// import "../App.css";
+import Logo from "../clapperboard-logo-1.png";
 
 function Save() {
     // Setting our component's initial state
@@ -33,7 +32,7 @@ function Save() {
     };
 
     function deleteCard(_id) {
-        API.deleteCard(_id)
+        API.deleteMovieCard(_id)
             .then(res => loadMovies())
             .catch(err => console.log(err));
         console.log()
@@ -41,12 +40,16 @@ function Save() {
 
     return (
         <>
-            <br></br>
-            <h2 className="gold centered">
-                Saved Movies and Shows
-            </h2>
-            <br />
-            <div className=' wrapper'>
+            <div className="container ">
+                <img src={Logo} alt="Logo" className="center-photo"></img>
+                <div className='movie-holder'>
+                    <h1 className='movieTitle'> <span>
+                        <i class="fas fa-film"></i> </span> SAVED MOVIES <span>
+                            <i class="fas fa-film"></i></span>
+                    </h1>
+                </div>
+                <br />
+
                 <div className="row">
                     {savedMovies.map(result =>
                         (
@@ -58,24 +61,10 @@ function Save() {
                                 image={result.image}
                                 deleteCard={deleteCard}
                                 cardId={result._id}
-                            // rating = {result.rating}
-                            // mediaType={result.mediaType}
                             />
                         ))}
                 </div>
             </div>
-            {/* <div>
-            <br></br> */}
-            {/* <div> {savedShows.map(show =>
-                <div key={show.key}>
-                    <img src={show.imageUrl} alt={show.title}></img>
-                    <p>{show.title}</p>
-                    <p>Creators: {show.creator}</p>
-                    <p>{show.synopsis}</p>
-                </div>
-            )}
-            </div> */}
-            {/* </div> */}
         </>
     )
 }

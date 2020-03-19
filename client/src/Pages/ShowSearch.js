@@ -19,7 +19,7 @@ function ShowSearch() {
                 </div>
                 <button type="submit" className="btn-lg" onClick={handleSubmitShows}>Search</button>
             </form>
-            <CardTV flipped={flipped} show={show} showSearch={showSearch} saveCardShow={saveCardShow}></CardTV>
+            <CardTV flipped={flipped} show={show} showSearch={showSearch} saveCardShow={saveCardShow}/>
         </div>
     )
 }

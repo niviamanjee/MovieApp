@@ -19,7 +19,18 @@
     box-sizing: border-box;
     
   }
-  
+  .lead{
+    margin-top: 15px;
+    font-weight: bold !important;
+  }
+
+  .card-image{
+    border: solid 3px black;
+    border-radius: 10px;
+  }
+  .release-date{
+    margin-top: 20px;
+  }
   /* This container is needed to position the front and back side */
   .flip-card-inner {
     position: relative;
