@@ -22,7 +22,6 @@ function App() {
   const [state, setState] = useState({
     // filter= "",
     saved: false,
-    flipped: false,
     movieSearch: "",
     showSearch: "",
     trending: [],
@@ -30,7 +29,7 @@ function App() {
     show: {},
     moreInfo: "",
     streaming: [],
-    savedShows: []
+
   })
 
 
@@ -39,15 +38,15 @@ function App() {
 
     saveCard()
     loadTrending()
-    getShowsSaved()
+    saveCardShow()
+
   }, []);
 
 
-  useEffect(() => {
-    if (state.saved === true) {
-      saveCardShow()
-    }
-  }, [state.saved])
+  // useEffect(() => {
+  //   if (state.saved === true) {
+  //   }
+  // }, [state.saved])
 
   useEffect(() => {
     if (state.show) {
@@ -100,13 +99,13 @@ function App() {
       .catch(err => console.log(err));
   }
 
-  const getShowsSaved = async () => {
-    await API.getSavedShows()
-      .then(res => {
-        console.log("data of saved shows: ", res.data)
-        setState({ ...state, savedShows: res.data })
-      })
-  }
+  // const getShowsSaved = async () => {
+  //   await API.getSavedShows()
+  //     .then(res => {
+  //       console.log("data of saved shows: ", res.data)
+  //       setState({ ...state, savedShows: res.data })
+  //     })
+  // }
 
 
   // Gather more information on the movie cards
@@ -133,9 +132,9 @@ function App() {
       .catch(err => console.log(err));
   }
 
-  const flip = () => {
-    setState({ ...state, flipped: !state.flipped });
-  }
+  // const flip = () => {
+  //   setState({ ...state, flipped: !state.flipped });
+  // }
 
   const getStreamingServices = (query) => {
     API.getStreaming(query)
@@ -192,7 +191,7 @@ function App() {
 
 
   return (
-    <SearchContext.Provider value={{ ...state, saveCardShow, handleSubmitShows, handleSubmitMovies, handleInputChange, handleInputChangeMovies, flip, saveCardShow, saveCard, getStreamingServices, getShowsSaved, handleSubmitMoreInfo }}>
+    <SearchContext.Provider value={{ ...state, saveCardShow, handleSubmitShows, handleSubmitMovies, handleInputChange, handleInputChangeMovies, saveCardShow, saveCard, getStreamingServices, handleSubmitMoreInfo }}>
       <Router>
         <div className="page-container">
           <NavBar />

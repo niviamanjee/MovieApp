@@ -15,9 +15,7 @@ function Back() {
 
   return (
     <div className="flip-card-back">
-      <p className="show-description">
-        {summary}
-      </p>
+
       <hr />
       <p className="show-creators"><b>Created by </b>{creators}</p>
       <p className="show-stars"><b>Starring </b>{actors}</p>

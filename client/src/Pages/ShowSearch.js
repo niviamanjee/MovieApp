@@ -15,7 +15,7 @@ function ShowSearch() {
                     <label>Search for Shows</label>
                     <input id="query-input" className="form-control" onChange={handleInputChange}></input>
                 </div>
-                <button type="submit" className="btn btn-outline-light" onClick={handleSubmitShows}>Search</button>
+                <button type="submit" className="btn-lg" onClick={handleSubmitShows}>Search</button>
             </form>
             <div className=' wrapper'>
                 <div className="row">

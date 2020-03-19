@@ -6,7 +6,7 @@ import SearchContext from "../../utils/SearchContext";
 
 function Front() {
     const { show } = useContext(SearchContext);
-    const { title, image, synopsis } = show
+    const { title, image, summary } = show
 
     return (
         <div className="flip-card-front">
@@ -17,7 +17,7 @@ function Front() {
                 </div>
             </div>
             <hr />
-            <p className="film-runtime text-dark"><b>Overview: </b>{synopsis}</p>
+            <p className="film-runtime text-dark"><b>Overview: </b>{summary}</p>
             <hr />
 
         </div>

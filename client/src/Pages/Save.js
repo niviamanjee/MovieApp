@@ -11,14 +11,16 @@ function Save() {
     // Setting our component's initial state
     const [savedMovies, setSavedMovies] = useState([])
     console.log(savedMovies)
+    const [savedShows, setSavedShows] = useState([])
 
     // Setting our component's initial state
-    const { savedShows } = useContext(SearchContext);
+    // const { savedShows } = useContext(SearchContext);
 
 
     // const { showSearch, shows, handleSubmit, handleInputChange } = useContext(SearchContext)
     useEffect(() => {
         loadMovies()
+        loadShows()
     }, [])
 
     // Load all the saved data from MongoDB
@@ -30,6 +32,13 @@ function Save() {
             .catch(err => console.log(err));
         console.log(API.getSavedMovieData)
     };
+    const loadShows = () => {
+        API.getSavedShows()
+            .then(res => {
+                console.log("data of saved shows: ", res.data)
+                setSavedShows(res.data)
+            })
+    }
 
     function deleteCard(_id) {
         API.deleteCard(_id)

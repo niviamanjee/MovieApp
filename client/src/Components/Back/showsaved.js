@@ -27,7 +27,7 @@ function Back({ title, creator, rating, networks, genres, episode_time, episodes
             <p className="first-air-date"><b>First Air Date: </b>{first_air_date}</p>
             <hr />
             {/* <button class="btn btn-outline-danger btn-sm" onClick={() => saveCard( title, titleS, overview, airedDate, released, rating, image)}> Save Card</button> */}
-            {/* <button class="btn btn-outline-danger btn-sm" onClick={() => deleteCard({ cardId })}> Delete</button> */}
+            {/* <button class="btn btn-outline-danger btn-sm" onClick={() => deleteCardShow(cardId)}> Delete <i class="fas fa-trash"></i></button> */}
         </div>
     )
 }
