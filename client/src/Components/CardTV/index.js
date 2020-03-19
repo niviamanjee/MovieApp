@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import "../Card/card.css"
+// import "../Card/card.css"
+import '../../Components/Card/card.css';
 import SearchContext from "../../utils/SearchContext"
 import Front from '../Front/index2';
 import Back from '../Back/index2';

@@ -9,15 +9,16 @@ function Save() {
     // Setting our component's initial state
     const [savedMovies, setSavedMovies] = useState([])
     console.log(savedMovies)
+    
     const [savedShows, setSavedShows] = useState([])
-
+    console.log(savedShows)
     // Setting our component's initial state
     // const { savedShows } = useContext(SearchContext);
 
 
     // const { showSearch, shows, handleSubmit, handleInputChange } = useContext(SearchContext)
     useEffect(() => {
-        loadMovies()
+        loadMovies();
         loadShows()
     }, [])
 
@@ -28,7 +29,7 @@ function Save() {
                 setSavedMovies(res.data)
             )
             .catch(err => console.log(err));
-        console.log(API.getSavedMovieData)
+        // console.log(API.getSavedMovieData)
     };
     const loadShows = () => {
         API.getSavedShows()
@@ -55,7 +56,7 @@ function Save() {
     return (
         <>
             <div className="container ">
-                <img src={Logo} alt="Logo" className="center-photo"></img>
+                <img src={Logo} alt="Logo" className="center-photo rounded mx-auto d-block"></img>
                 <div className='movie-holder'>
                     <h1 className='movieTitle'> <span>
                         <i class="fas fa-film"></i> </span> SAVED MOVIES <span>
@@ -78,10 +79,8 @@ function Save() {
                             />
                         ))}
                 </div>
-            </div>
-
-            <div classname="container">
-                <img src={Logo} alt="Logo" className="center-photo"></img>
+               <br></br>
+                {/* <img src={Logo} alt="Logo" className="center-photo rounded mx-auto d-block"></img> */}
                 <div className='movie-holder'>
                     <h1 className='movieTitle'> <span>
                         <i class="fas fa-film"></i> </span> SAVED SHOWS <span>
@@ -89,7 +88,7 @@ function Save() {
                     </h1>
                 </div>
                 <br />
-                <div classname="row"> {savedShows.map(show =>
+                <div className="row"> {savedShows.map(show =>
                     <CardShowSaved
                         title={show.title}
                         imageUrl={show.imageUrl}
@@ -107,7 +106,10 @@ function Save() {
 
                     />
                 )}</div>
+            
             </div>
+
+         
         </>
     )
 }

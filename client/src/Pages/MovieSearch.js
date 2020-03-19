@@ -12,7 +12,7 @@ function MovieSearch() {
     return (
         <>
             <div className='container logo-holder'>
-                <img src={Logo} alt="Logo" className="center-photo"></img>
+                <img src={Logo} alt="Logo" className="center-photo rounded mx-auto d-block"></img>
                 <div className='movie-holder'>
                     <h1 className='movieTitle'> <span><i class="fas fa-ticket-alt"></i></span> MOVIES
                 <span> <i class="fas fa-ticket-alt"></i></span>
