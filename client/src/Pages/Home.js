@@ -27,6 +27,9 @@ function Home() {
                     <button className="btn btn-outline-light btn-lg"><Link to="/save" style={{ textDecoration: 'none' }}>Saved</Link></button>
                 </div>
             </div>
+            <br></br>
+            <hr></hr>
+            <br></br>
 
             <div className="container">
 
