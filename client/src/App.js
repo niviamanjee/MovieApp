@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
-import Card from './Components/Card/index.js';
 import Home from "./Pages/Home"
-
-
 import API from "./utils/API";
 import Wrapper from "./Components/Wrapper";
 import ShowSearch from "./Pages/ShowSearch";
 import Save from "./Pages/Save";
 import MovieSearch from "./Pages/MovieSearch";
 import SearchContext from './utils/SearchContext';
-//import 'bootstrap/dist/css/bootstrap.css';
-import Jumbotron from './Components/Jumbotron';
 import NavBar from './Components/NavBar';
-// import 'bootstrap/dist/css/bootstrap.css';
+
 
 
 function App() {
@@ -88,7 +83,14 @@ function App() {
   const handleSubmitMovies = (event) => {
     event.preventDefault();
       API.getMovies(state.movieSearch)
+        .then(res => {
+          // console.log(res.data)
+          setState({ ...state, movie: res.data })
+        }
+        )
+        .catch(err => console.log(err));
   }
+
 
   const getShowsSaved = async () => {
     await API.getSavedShows()
@@ -97,20 +99,27 @@ function App() {
         setState({ ...state, savedShows: res.data })
       })
   }
-
+  const getStreamingServices = (query) => {
+    API.getStreaming(query)
+      .then(res => {
+        console.log("Streaming data:", res.data)
+        setState({ ...state, streaming: res.data })
+        console.log("streaming state:", state.streaming)
+      })
+  }
 
   // Gather more information on the movie cards
-  const handleSubmitMoreInfo = (event) => {
-    event.preventDefault();
+  // const handleSubmitMoreInfo = (event) => {
+  //   event.preventDefault();
      
-      API.getMoreInfo(state.moreInfo)
-      .then(res => {
-        console.log(res.data)
-        setState({ ...state, moreInfo:  res.data})
-      }
-      )
-      .catch(err => console.log(err));
-  }
+  //     API.getMoreInfo(state.moreInfo)
+  //     .then(res => {
+  //       console.log(res.data)
+  //       setState({ ...state, moreInfo:  res.data})
+  //     }
+  //     )
+  //     .catch(err => console.log(err));
+  // }
 
  //Set the trending movies/ shows on the home page
  function loadTrending() {
@@ -129,9 +138,6 @@ function App() {
   }
 
   const saveCard = ( title, titleS, overview, airedDate, released, rating, image) => {
-    // console.log(`Card Title: ${title}`)
-    // console.log(`Card Summary: ${overview}`)
-    // console.log(`Card Creators: ${released}`)
     var cardData = {
       title: title,
       titleS: titleS,
@@ -162,12 +168,9 @@ function App() {
     }
     API.saveShowCard(cardData).then()
   }
-  // console.log(cardData)
   
-
-
   return (
-    <SearchContext.Provider value={{ ...state, saveShowCard, handleSubmitShows, handleSubmitMovies, handleInputChange, handleInputChangeMovies, flip, saveCardShow, saveCardMovie, getStreamingServices, getShowsSaved, savecard }}>
+    <SearchContext.Provider value={{ ...state, handleSubmitShows, handleSubmitMovies, handleInputChange, handleInputChangeMovies, flip, saveCardShow, getStreamingServices, getShowsSaved,saveCard }}>
       <Router>
         <div className="page-container">
           <NavBar />

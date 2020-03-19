@@ -4,22 +4,34 @@ import React, { useContext } from "react";
 import SearchContext from "../utils/SearchContext";
 import Card from "../Components/Card"
 import "./MovieSearch.css"
+import Jumbotron from "../Components/Jumbotron";
+import Logo from "../clapperboard-logo-1.png"
+
 
 function MovieSearch() {
     // Setting our component's initial state
-    const { movieSearch, movie, handleSubmitMovies, handleInputChangeMovies, handleSubmitMoreInfo } = useContext(SearchContext)
-    
+    const { movieSearch, movie, handleSubmitMovies, handleInputChangeMovies, handleSubmitMoreInfo, getStreamingServices, streaming } = useContext(SearchContext)
+    // console.log(streaming)
     return (
-        <div className="container xxx">
-            <form>
-                <div className="form-group">
-                    <label>Search for Movies</label>
-                    <input id="query-input" className="form-control" onChange={handleInputChangeMovies}></input>
+        <>
+        <div className='container logo-holder'>
+            <img src={Logo} alt="Logo" className="center-photo"></img>
+            <div className='movie-holder'>
+                <h1 className='movieTitle'> <span><i class="fas fa-ticket-alt"></i></span> MOVIES 
+                <span> <i class="fas fa-ticket-alt"></i></span>
+                </h1>
+                {/* SEARCH BAR */}
+                <div class="container input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon1" onClick={handleSubmitMovies}>Search</button>
+                    </div>
+                    <input id="query-input" type="text" class="form-control" placeholder="Search for Movies..." aria-label="" aria-describedby="button-addon1" onChange={handleInputChangeMovies}></input>
                 </div>
-                <button type="submit" className="btn-lg" onClick={handleSubmitMovies}>Search</button>
-            </form>
-            <div className=' wrapper'>
-                <div className="row">
+            </div>     
+        </div>
+        {/* CARD HOLDER FOR THE SEARCH */}
+        <div className="container xxx">
+            <div className="row">
                 {movie.map(result =>
                 ( 
                     <Card 
@@ -31,13 +43,19 @@ function MovieSearch() {
                     movie={movie} 
                     movieSearch={movieSearch}
                     moreInfo = {handleSubmitMoreInfo}/>
-            ))}
-                </div>
-      
+                ))}
             </div>
-        
         </div>
+    </>
     )
 }
 
 export default MovieSearch;
+
+
+ {/* <form className="container">
+                <div className="form-group">
+                    <input id="query-input" placeholder="Search for Movies..." className="form-control" onChange={handleInputChangeMovies}></input>
+                </div>
+                <button type="submit" className="btn-small" onClick={handleSubmitMovies}>Search</button>
+            </form> */}

@@ -29,14 +29,14 @@ export default {
     getSavedMovieData: function () {
         return axios.get("/api/movie/save/")
     },
-    deleteCard: function(_id) {
-        return axios.delete("/api/movie/save", _id)
+    // deleteCard: function(_id) {
+    //     return axios.delete("/api/movie/save", _id)
       
-    },
+    // },
     deleteShowCard: function (id) {
         return axios.delete("/api/show/save/", id);
     },
     deleteMovieCard: function (id) {
-        return axios.delete("/api/movie/save/", id);
+        return axios.delete("/api/movie/save/"+ id);
     }
 }

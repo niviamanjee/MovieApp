@@ -23,6 +23,7 @@ const SearchContext = createContext({
     saveCardShow: () => { },
     saveCardMovie: () => { },
     getShowsSaved: () => { },
+    getStreamingServices: () => {}
 })
 
 export default SearchContext;
