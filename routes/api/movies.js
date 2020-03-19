@@ -10,7 +10,7 @@ router
 
 router
     .route("/:id")
-    .delete(movieController.remove)    
+    .delete(movieController.remove)
 
 
 module.exports = router;

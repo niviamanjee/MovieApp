@@ -1,16 +1,22 @@
 import React, { useContext } from 'react';
-import '../../App.css';
-import ImageArea from '../ImageArea/index2';
-import MainArea from '../MainArea/index2';
+import '../../Components/Card/card.css';
+// import ImageArea from '../ImageArea/index2';
+// import MainArea from '../MainArea/index2';
 import SearchContext from "../../utils/SearchContext";
 
 function Front() {
     const { show } = useContext(SearchContext);
+    const { title, image } = show
 
     return (
-        <div className="front">
-            <ImageArea show={show} />
-            <MainArea show={show} />
+        <div className="flip-card-front">
+            <div className="main-area">
+                <h1 className="lead">{title}</h1>
+                <div className="image-container">
+                    <img className="card-image" src={image} alt={title} width="200" height="450" />
+                </div>
+            </div>
+
         </div>
     )
 }
