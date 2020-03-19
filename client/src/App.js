@@ -110,14 +110,7 @@ function App() {
         setState({ ...state, savedShows: res.data })
       })
   }
-  const getStreamingServices = (query) => {
-    API.getStreaming(query)
-      .then(res => {
-        console.log("Streaming data:", res.data)
-        setState({ ...state, streaming: res.data })
-        console.log("streaming state:", state.streaming)
-      })
-  }
+
 
   // Gather more information on the movie cards
   // const handleSubmitMoreInfo = (event) => {

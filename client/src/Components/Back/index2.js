@@ -8,10 +8,10 @@ function Back() {
   const { show, saveCardShow, streaming } = useContext(SearchContext)
   console.log(streaming);
   const { title, id, summary, image, creators, actors, episode_time, genres, networks, episodes_number, seasons_number, first_air_date, rating } = show;
-  var streamingViews = streaming.map(stream => (
-    <li key={streaming.service} ><a class="btn btn-outline-danger btn-sm" onClick={() => window.open(stream.url, "_blank")} role="button">{stream.service}</a></li>
-  ))
-  console.log(streamingViews)
+  // var streamingViews = streaming.map(stream => (
+  //   <li key={streaming.service} ><a class="btn btn-outline-danger btn-sm" onClick={() => window.open(stream.url, "_blank")} role="button">{stream.service}</a></li>
+  // ))
+  // console.log(streamingViews)
 
   return (
     <div className="back">
@@ -31,7 +31,7 @@ function Back() {
       <hr />
       <a class="btn btn-outline-danger btn-sm" href="#" role="button">YouTube It!</a>
       <ul>
-        {streamingViews}
+        {/* {streamingViews} */}
       </ul>
       <button class="btn btn-outline-danger btn-sm" onClick={() => saveCardShow(id, image, title, creators, summary)}> Save Card</button>
     </div>
