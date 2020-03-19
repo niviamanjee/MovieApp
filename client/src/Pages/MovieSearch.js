@@ -1,5 +1,3 @@
-
-// import './App.css';
 import React, { useContext } from "react";
 import SearchContext from "../utils/SearchContext";
 import Card from "../Components/Card"
@@ -51,11 +49,3 @@ function MovieSearch() {
 }
 
 export default MovieSearch;
-
-
- {/* <form className="container">
-                <div className="form-group">
-                    <input id="query-input" placeholder="Search for Movies..." className="form-control" onChange={handleInputChangeMovies}></input>
-                </div>
-                <button type="submit" className="btn-small" onClick={handleSubmitMovies}>Search</button>
-            </form> */}

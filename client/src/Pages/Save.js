@@ -27,57 +27,44 @@ function Save() {
             .then(res =>
                 setSavedMovies(res.data)
             )
-            .catch(err => console.log(err)); 
-            console.log(API.getSavedMovieData) 
+            .catch(err => console.log(err));
+        console.log(API.getSavedMovieData)
     };
 
     function deleteCard(_id) {
         API.deleteMovieCard(_id)
             .then(res => loadMovies())
             .catch(err => console.log(err));
-            console.log()
+        console.log()
     }
 
     return (
         <>
-        <div className="container ">
-            <img src={Logo} alt="Logo" className="center-photo"></img>
-            <div className='movie-holder'>
-                <h1 className='movieTitle'> <span>
-                <i class="fas fa-film"></i> </span> SAVED MOVIES <span>
-                <i class="fas fa-film"></i></span>
-                </h1>
-            </div>
-            <br/>
-           
-                <div className="row">
-                {savedMovies.map(result =>
-                ( 
-                    <CardSaved 
-                    title ={result.title}
-                    released ={result.released}
-                    overview = {result.overview}
-                    rating = {result.rating}
-                    image = {result.image}
-                    deleteCard = {deleteCard}
-                    cardId = {result._id}
-                    />
-            ))}
-            </div>
-     </div>
-
-        <div>
-            <br></br>
-            <h2 className="gold centered">Saved Shows</h2>
-            <div> {savedShows.map(show =>
-                <div key={show.key}>
-                    <img src={show.imageUrl} alt={show.title}></img>
-                    <p>{show.title}</p>
-                    <p>Creators: {show.creator}</p>
-                    <p>{show.synopsis}</p>
+            <div className="container ">
+                <img src={Logo} alt="Logo" className="center-photo"></img>
+                <div className='movie-holder'>
+                    <h1 className='movieTitle'> <span>
+                        <i class="fas fa-film"></i> </span> SAVED MOVIES <span>
+                            <i class="fas fa-film"></i></span>
+                    </h1>
                 </div>
-            )}</div>
-        </div>
+                <br />
+
+                <div className="row">
+                    {savedMovies.map(result =>
+                        (
+                            <CardSaved
+                                title={result.title}
+                                released={result.released}
+                                overview={result.overview}
+                                rating={result.rating}
+                                image={result.image}
+                                deleteCard={deleteCard}
+                                cardId={result._id}
+                            />
+                        ))}
+                </div>
+            </div>
         </>
     )
 }

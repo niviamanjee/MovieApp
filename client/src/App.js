@@ -33,22 +33,24 @@ function App() {
     loadTrending()
   }, []);
   
-
   useEffect(() => {
     if (state.saved === true) {
       saveCardShow()
     }
   }, [state.saved])
+
   useEffect(() => {
     if (state.show) {
       getStreamingServices(state.showSearch)
     }
   }, [state.show])
+
   useEffect(() => {
     if (state.movie) {
       getStreamingServices(state.movieSearch)
     }
   }, [state.movie])
+
   useEffect(() => {
     getShowsSaved()
   }, [])
@@ -77,6 +79,15 @@ function App() {
       }
       )
       .catch(err => console.log(err));
+  }
+
+  const getStreamingServices = (query) => {
+    API.getStreaming(query)
+      .then(res => {
+        console.log("Streaming data:", res.data)
+        setState({ ...state, streaming: res.data })
+        console.log("streaming state:", state.streaming)
+      })
   }
 
  // Call Movie API from the backend through Utils folder
