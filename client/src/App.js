@@ -1,27 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
-import Card from './Components/Card/index.js';
 import Home from "./Pages/Home"
-
-
 import API from "./utils/API";
 import Wrapper from "./Components/Wrapper";
 import ShowSearch from "./Pages/ShowSearch";
 import Save from "./Pages/Save";
 import MovieSearch from "./Pages/MovieSearch";
 import SearchContext from './utils/SearchContext';
-//import 'bootstrap/dist/css/bootstrap.css';
-import Jumbotron from './Components/Jumbotron';
 import NavBar from './Components/NavBar';
-// import 'bootstrap/dist/css/bootstrap.css';
+
 
 
 function App() {
 
   const [state, setState] = useState({
-    // filter= "",
-    saved: false,
+
     movieSearch: "",
     showSearch: "",
     trending: [],
@@ -61,7 +55,6 @@ function App() {
   }, [state.movie])
 
 
-
   const handleInputChange = (event) => {
     event.preventDefault();
     // console.log(event.target.value)
@@ -89,23 +82,20 @@ function App() {
   }
 
   // Call Movie API from the backend through Utils folder
+
+
+  // Call Movie API from the backend through Utils folder
   const handleSubmitMovies = (event) => {
     event.preventDefault();
-    console.log("Movie Search Button")
     API.getMovies(state.movieSearch)
       .then(res => {
+        // console.log(res.data)
         setState({ ...state, movie: res.data })
-      })
+      }
+      )
       .catch(err => console.log(err));
   }
 
-  // const getShowsSaved = async () => {
-  //   await API.getSavedShows()
-  //     .then(res => {
-  //       console.log("data of saved shows: ", res.data)
-  //       setState({ ...state, savedShows: res.data })
-  //     })
-  // }
 
 
   // Gather more information on the movie cards
@@ -120,6 +110,8 @@ function App() {
       )
       .catch(err => console.log(err));
   }
+
+
 
   //Set the trending movies/ shows on the home page
   function loadTrending() {
@@ -144,10 +136,8 @@ function App() {
         console.log("streaming state:", state.streaming)
       })
   }
+
   const saveCard = (title, titleS, overview, airedDate, released, rating, image) => {
-    // console.log(`Card Title: ${title}`)
-    // console.log(`Card Summary: ${overview}`)
-    // console.log(`Card Creators: ${released}`)
     var cardData = {
       title: title,
       titleS: titleS,
@@ -161,21 +151,21 @@ function App() {
     API.saveMovieCard(cardData).then()
   }
 
-  const saveCardShow = (image, title, creators, summary, episode_time,
+  const saveCardShow = (imageUrl, title, creator, synopsis, episode_time,
     genres, networks, episodes_number, seasons_number, first_air_date, rating) => {
 
     console.log(`Card Title: ${title}`)
-    console.log(`Card Summary: ${summary}`)
-    console.log(`Card Creators: ${creators}`)
+    console.log(`Card Summary: ${synopsis}`)
+    console.log(`Card Creators: ${creator}`)
     //create filter if/then that filters card based on whether it's a movie or show
     //if movie: set up cardData to match movieSchema
     //if show:set up cardData to match showSchema
     // call appropriate functions based on filter 
     var cardData = {
       title: title,
-      imageUrl: image,
-      creator: creators,
-      synopsis: summary,
+      imageUrl: imageUrl,
+      creator: creator,
+      synopsis: synopsis,
       episode_time: episode_time,
       genres: genres,
       networks: networks,

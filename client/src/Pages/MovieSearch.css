@@ -1,16 +1,35 @@
-
-.xxx {
+.center-photo {
+    margin: 50px 10px;
+}
+.movie-holder{
+    position: static;
+    text-align: center;
     background-color: #b3995d;
-    padding: 50px 50px;
-    border: solid 5px maroon;
+    padding: 20px 20px;
+    border: solid 2px black;
     border-radius: 10px;
 }
-button{
-    background-color: maroon; 
-    color: #b3995d;
+.movieTitle{
+    /* text-decoration: underline; */
+    padding-bottom: 20px;
+    letter-spacing: 7px;
+    font-size: 50px;
     font-weight: bold;
 }
 
-.savedJumbotron {
-    border: solid 5px maroon;
+button{
+    background-color: maroon !important; 
+    color: #b3995d !important;
+    font-weight: bold !important;
+    border: solid 2px black !important
 }
+.form-control{
+    border: solid 2px black !important
+}
+.xxx {
+    /* background-color: #b3995d; */
+    padding: 50px 50px;
+    /* border: solid 5px maroon; */
+    border-radius: 10px;
+}
+

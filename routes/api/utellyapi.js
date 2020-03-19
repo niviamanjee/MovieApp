@@ -28,8 +28,9 @@ router.get("/:id", function (req, res) {
         })
         );
 
-        res.json(response)
         console.log(response)
+        res.json(response)
+        
     });
 })
 

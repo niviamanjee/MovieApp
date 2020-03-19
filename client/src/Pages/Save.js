@@ -3,9 +3,7 @@ import API from "../utils/API"
 import CardSaved from "../Components/CardSaved";
 import CardShowSaved from "../Components/CardShowSaved"
 import "./MovieSearch.css"
-// import React, { useContext } from "react";
-import SearchContext from "../utils/SearchContext";
-// import "../App.css";
+import Logo from "../clapperboard-logo-1.png";
 
 function Save() {
     // Setting our component's initial state
@@ -41,18 +39,31 @@ function Save() {
     }
 
     function deleteCard(_id) {
-        API.deleteCard(_id)
+        API.deleteMovieCard(_id)
             .then(res => loadMovies())
+            .catch(err => console.log(err));
+        console.log()
+    }
+
+    function deleteCardShow(_id) {
+        API.deleteShowCard(_id)
+            .then(res => loadShows())
             .catch(err => console.log(err));
         console.log()
     }
 
     return (
         <>
+            <div className="container ">
+                <img src={Logo} alt="Logo" className="center-photo"></img>
+                <div className='movie-holder'>
+                    <h1 className='movieTitle'> <span>
+                        <i class="fas fa-film"></i> </span> SAVED MOVIES <span>
+                            <i class="fas fa-film"></i></span>
+                    </h1>
+                </div>
+                <br />
 
-
-            <div className=' wrapper'>
-                <h2 className="gold centered">Saved Movies</h2>
                 <div className="row">
                     {savedMovies.map(result =>
                         (
@@ -64,17 +75,20 @@ function Save() {
                                 image={result.image}
                                 deleteCard={deleteCard}
                                 cardId={result._id}
-                            // rating = {result.rating}
-                            // mediaType={result.mediaType}
-
                             />
                         ))}
                 </div>
             </div>
 
-            <div classname=' wrapper'>
-
-                <h2 className="gold centered">Saved Shows</h2>
+            <div classname="container">
+                <img src={Logo} alt="Logo" className="center-photo"></img>
+                <div className='movie-holder'>
+                    <h1 className='movieTitle'> <span>
+                        <i class="fas fa-film"></i> </span> SAVED SHOWS <span>
+                            <i class="fas fa-film"></i></span>
+                    </h1>
+                </div>
+                <br />
                 <div classname="row"> {savedShows.map(show =>
                     <CardShowSaved
                         title={show.title}
@@ -88,7 +102,9 @@ function Save() {
                         episodes_number={show.episodes_number}
                         seasons_number={show.seasons_number}
                         first_air_date={show.first_air_date}
-                        key={show.key}
+                        deleteCardShow={deleteCardShow}
+                        cardId={show._id}
+
                     />
                 )}</div>
             </div>

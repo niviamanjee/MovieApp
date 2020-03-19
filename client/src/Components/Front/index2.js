@@ -6,19 +6,16 @@ import SearchContext from "../../utils/SearchContext";
 
 function Front() {
     const { show } = useContext(SearchContext);
-    const { title, image, summary } = show
+    const { title, image } = show
 
     return (
         <div className="flip-card-front">
             <div className="main-area">
                 <h1 className="lead">{title}</h1>
                 <div className="image-container">
-                    <img className="card-image" src={image} alt={title} width="200" height="200" />
+                    <img className="card-image" src={image} alt={title} width="200" height="450" />
                 </div>
             </div>
-            <hr />
-            <p className="film-runtime text-dark"><b>Overview: </b>{summary}</p>
-            <hr />
 
         </div>
     )

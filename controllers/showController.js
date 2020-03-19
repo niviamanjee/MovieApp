@@ -6,13 +6,10 @@ module.exports = {
         db.Show
             .find(req.query)
             .sort({ date: -1 })
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-    },
-    findShowById: function (req, res) {
-        db.Show
-            .findShowById(req.params.id)
-            .then(dbModel => res.json(dbModel))
+            .then(dbModel => {
+                res.json(dbModel)
+                console.log(dbModel)
+            })
             .catch(err => res.status(422).json(err));
     },
     createShow: function (req, res) {
@@ -21,7 +18,7 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
-    removeShow: function (req, res) {
+    remove: function (req, res) {
         db.Show
             .findById({ _id: req.params.id })
             .then(dbModel => dbModel.remove())

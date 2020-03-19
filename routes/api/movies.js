@@ -12,7 +12,5 @@ router
     .route("/:id")
     .delete(movieController.remove)
 
-// Matches with "/api/movies/:id"
-
 
 module.exports = router;
