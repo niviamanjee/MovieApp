@@ -86,10 +86,24 @@ function App() {
       .catch(err => console.log(err));
   }
 
+  const getStreamingServices = (query) => {
+    API.getStreaming(query)
+      .then(res => {
+        console.log("Streaming data:", res.data)
+        setState({ ...state, streaming: res.data })
+        console.log("streaming state:", state.streaming)
+      })
+  }
+
  // Call Movie API from the backend through Utils folder
   const handleSubmitMovies = (event) => {
     event.preventDefault();
-      API.getMovies(state.movieSearch)
+    console.log("Movie Search Button")
+    API.getMovies(state.movieSearch)
+      .then(res => {
+        setState({ ...state, movie: res.data })
+      })
+      .catch(err => console.log(err));
   }
 
   const getShowsSaved = async () => {
@@ -169,7 +183,7 @@ function App() {
 
 
   return (
-    <SearchContext.Provider value={{ ...state, saveShowCard, handleSubmitShows, handleSubmitMovies, handleInputChange, handleInputChangeMovies, flip, saveCardShow, saveCardMovie, getStreamingServices, getShowsSaved, savecard }}>
+    <SearchContext.Provider value={{ ...state, handleSubmitShows, handleSubmitMovies, handleInputChange, handleInputChangeMovies, flip, saveCardShow, getStreamingServices, getShowsSaved, saveCard }}>
       <Router>
         <div className="page-container">
           <NavBar />

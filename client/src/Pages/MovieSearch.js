@@ -1,9 +1,7 @@
-
-// import './App.css';
 import React, { useContext } from "react";
 import SearchContext from "../utils/SearchContext";
-import Card from "../Components/Card"
-import "./MovieSearch.css"
+import Card from "../Components/Card";
+import "./MovieSearch.css";
 
 function MovieSearch() {
     // Setting our component's initial state
@@ -13,7 +11,10 @@ function MovieSearch() {
         <div className="container xxx">
             <form>
                 <div className="form-group">
-                    <label>Search for Movies</label>
+                    <label className="lead">
+                        <b>Search for Movies</b>
+                    </label>
+                    <hr></hr>
                     <input id="query-input" className="form-control" onChange={handleInputChangeMovies}></input>
                 </div>
                 <button type="submit" className="btn-lg" onClick={handleSubmitMovies}>Search</button>

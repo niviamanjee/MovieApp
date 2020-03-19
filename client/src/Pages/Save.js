@@ -28,63 +28,54 @@ function Save() {
             .then(res =>
                 setSavedMovies(res.data)
             )
-            .catch(err => console.log(err)); 
-            console.log(API.getSavedMovieData) 
+            .catch(err => console.log(err));
+        console.log(API.getSavedMovieData)
     };
 
     function deleteCard(_id) {
         API.deleteCard(_id)
             .then(res => loadMovies())
             .catch(err => console.log(err));
-            console.log()
+        console.log()
     }
 
     return (
         <>
-        <div className="container ">
-            <div className="savedJumbotron">
-            <div class="jumbotron fluid-jumbotron ">
-  <div class="container text-center">
-    <h1 class="display-4">My Saved Movies </h1>
-    <p class="lead"></p>
-  </div>
-</div>
-            </div>
-  
-<br/>
-<NavBar/>
-<div className=' wrapper'>
-                <div className="row">
-                {savedMovies.map(result =>
-                ( 
-                    <CardSaved 
-                    title ={result.title}
-                    released ={result.released}
-                    overview = {result.overview}
-                    rating = {result.rating}
-                    image = {result.image}
-                    deleteCard = {deleteCard}
-                    cardId = {result._id}
-                    // rating = {result.rating}
-                    // mediaType={result.mediaType}
-
-                    />
-            ))}
-            </div>
-        </div>
-     </div>
-        <div>
             <br></br>
-            <h2 className="gold centered">Saved Movies and Shows</h2>
-            <div> {savedShows.map(show =>
+            <h2 className="gold centered">
+                Saved Movies and Shows
+            </h2>
+            <br />
+            <div className=' wrapper'>
+                <div className="row">
+                    {savedMovies.map(result =>
+                        (
+                            <CardSaved
+                                title={result.title}
+                                released={result.released}
+                                overview={result.overview}
+                                rating={result.rating}
+                                image={result.image}
+                                deleteCard={deleteCard}
+                                cardId={result._id}
+                            // rating = {result.rating}
+                            // mediaType={result.mediaType}
+                            />
+                        ))}
+                </div>
+            </div>
+            {/* <div>
+            <br></br> */}
+            {/* <div> {savedShows.map(show =>
                 <div key={show.key}>
                     <img src={show.imageUrl} alt={show.title}></img>
                     <p>{show.title}</p>
                     <p>Creators: {show.creator}</p>
                     <p>{show.synopsis}</p>
                 </div>
-            )}</div>
-        </div>
+            )}
+            </div> */}
+            {/* </div> */}
         </>
     )
 }
