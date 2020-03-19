@@ -24,7 +24,7 @@ function App() {
     moreInfo: "",
     streaming: [],
 
-  })
+  });
 
 
 
@@ -61,7 +61,7 @@ function App() {
     console.log(event.target.value)
     setState({ ...state, showSearch: event.target.value })
     // console.log(state.showSearch)
-  }
+  };
 
   const handleInputChangeMovies = (event) => {
     event.preventDefault();
@@ -79,9 +79,7 @@ function App() {
       }
       )
       .catch(err => console.log(err));
-  }
-
-  // Call Movie API from the backend through Utils folder
+  };
 
 
   // Call Movie API from the backend through Utils folder
@@ -101,7 +99,6 @@ function App() {
   // Gather more information on the movie cards
   const handleSubmitMoreInfo = (event) => {
     event.preventDefault();
-
     API.getMoreInfo(state.moreInfo)
       .then(res => {
         console.log(res.data)

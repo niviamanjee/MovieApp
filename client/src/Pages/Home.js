@@ -27,13 +27,16 @@ function Home() {
                     <button className="btn btn-outline-light btn-lg"><Link to="/save" style={{ textDecoration: 'none' }}>Saved</Link></button>
                 </div>
             </div>
+            <br></br>
+            <hr></hr>
+            <br></br>
 
             <div className="container">
 
                 <div class="jumbotron">
                     <div class="container text-center">
                         <h1 class="display-4">Top Trending Movies & Shows </h1>
-                        <p class="lead">This week trending movies and shows.</p>
+                        <p class="lead">This week's trending movies and shows.</p>
                         <p></p>
                     </div>
                 </div>
