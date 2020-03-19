@@ -1,6 +1,10 @@
 {
   "name": "movieapp",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.16.1",
+    "npm": "6.13.4"
+  },
   "description": "This is a full stack movie search app.",
   "main": "server.js",
   "scripts": {
@@ -27,7 +31,7 @@
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
-    "express":"*",
+    "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.9.5",
     "nodemon": "^2.0.2",
