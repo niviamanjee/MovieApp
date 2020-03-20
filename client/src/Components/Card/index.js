@@ -3,7 +3,7 @@ import '../../Components/Card/card.css';
 import SearchContext from "../../utils/SearchContext"
 import Front from '../Front/index';
 import Back from '../Back/index';
-import MovieSearch from "../../Pages/MovieSearch";
+
 
 const Card = ({title,titleS, mediaType, airedDate, released, rating, overview, image}) => {
     const { show, movie, movieSearch, flip, flipped,  saveCard, handleSubmitMoreInfo } = useContext(SearchContext)

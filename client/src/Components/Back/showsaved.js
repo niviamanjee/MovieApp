@@ -5,7 +5,7 @@ import '../../Components/Card/card.css';
 function Back({ title, creator, synopsis, episode_time,
     genres, networks, episodes_number, seasons_number, first_air_date, rating, deleteCardShow, cardId }) {
 
-
+console.log(cardId)
 
 
     // console.log(cardId)
