@@ -16,16 +16,28 @@ This full stack entertainment search application provides users with versatile, 
 * Saved Movies and Shows
 
 
-## Application Demo
-![ClapperBoard Demo](demo/)
+## Application Features 
+
+### Search and Save 
+![ClapperBoard Demo](demo/ClapperBoard-Search-Demo.gif)
+
+### Weekly Trending Movies and Shows 
+![ClapperBoard Demo](demo/ClapperBoard-Save-Demo.gif)
+
+### Streaming Availability
+![ClapperBoard Demo](demo/ClapperBoard-Streaming-Demo.gif)
 
 ## Technologies Used 
 * ReactJS
+* Context API
+* React Router
 * Mongo DB 
 * Axios
 * MVC Framework
+* Movie DB API
+* Utelly API
 
 ## Future Developments 
 * User authorization and account management
-* User Interface Aesthetic
+* User Interface Aesthetic using CSS animations
 
