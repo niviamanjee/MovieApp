@@ -10,9 +10,9 @@ function ShowSearch() {
     // const [formObject, setFormObject] = useState({})
 
     return (
-        <div className="container xxx">
+        <>
             <div className='container logo-holder'>
-                <img src={Logo} alt="Logo" className="center-photo"></img>
+                <img src={Logo} alt="Logo" className="center-photo rounded mx-auto d-block"></img>
                 <div className='movie-holder'>
                     <h1 className='movieTitle'> <span><i class="fas fa-ticket-alt"></i></span> SHOWS
                 <span> <i class="fas fa-ticket-alt"></i></span>
@@ -27,14 +27,14 @@ function ShowSearch() {
                 </div>
             </div>
 
-            <div className=' wrapper'>
+            <div className=' container xxx'>
                 <div className="row">
                     <CardTV show={show} showSearch={showSearch} saveCardShow={saveCardShow}></CardTV>
                 </div>
 
             </div>
 
-        </div>
+       </>
 
     )
 }

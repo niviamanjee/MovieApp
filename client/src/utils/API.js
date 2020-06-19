@@ -30,7 +30,7 @@ export default {
         return axios.get("/api/movie/save/")
     },
     deleteShowCard: function (id) {
-        return axios.delete("/api/show/save/", id);
+        return axios.delete("/api/show/save/" + id);
     },
     deleteMovieCard: function (id) {
         return axios.delete("/api/movie/save/" + id);

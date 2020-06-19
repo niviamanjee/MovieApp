@@ -13,7 +13,7 @@ function Home() {
 
             <div className="title-container centered">
 
-                <img src={Logo} alt="Logo" className="center-photo"></img>
+                <img src={Logo} alt="Logo" className="center-photo rounded mx-auto d-block"></img>
                 <div >
                     <h1 className="display-3">
                         <b>ClapperBoard</b>
