@@ -1,7 +1,11 @@
 const express = require("express");
 require('dotenv').config();
 const mongoose = require("mongoose");
-const connection = "mongodb+srv://kingbrs49:<password>@pcc-cluster-622-jbx7v.mongodb.net/<dbname>?retryWrites=true&w=majority";
+
+const connection = "mongodb+srv://kingbrs49:Holverstott1984!@pcc-cluster-622-jbx7v.mongodb.net/movieApp?retryWrites=true&w=majority";
+mongoose.connect(connection, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
+    .then(() => console.log("Database Connected Successfully"))
+    .catch(err => console.log(err));
 
 const routes = require("./routes");
 const app = express();
