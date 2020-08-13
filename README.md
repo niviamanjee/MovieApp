@@ -41,3 +41,5 @@ This full stack entertainment search application provides users with versatile, 
 * User authorization and account management
 * User Interface Aesthetic using CSS animations
 
+## Deployed Link
+https://hidden-falls-66612.herokuapp.com/
